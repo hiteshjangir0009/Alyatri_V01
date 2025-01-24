@@ -1,0 +1,1006 @@
+{
+    "html_attributions": [],
+    "next_page_token": "AWYs27zpHTfpwDQ3maToXkJiB2iSnAHE0tafYEtI_CGlClxUoRd7uE5sy8X-HbL3V0U-GT8jheqBTvODI1uqI1j7tPqlnqBnyUiGPZogWRDr5HZWZzEnhL82a2_OnpBDR_kWER90o-ydVOU0-GfS5Jqklg_48cyrpkWrJIwTm4TH9VbWcPwozNIRWYlPGyssd-zooOjUyaNDcqNVFKrYHryLbmtasKrFAL5mbXwnAs_pOO6Y8EETby6Mt5CyvhXwabcp6SNZ0LbacCTr_jyx2WK21BV6IH3MNcnE5ivzldk56Dz4x9iUFRx1LEbZvS0-pP-h7HdC1U2e8QCkleW1BOnTDHXE7dfIyBdsiy-1TpmEppePcwmUZRGvcuEqqK_jZ7pbY-TsdVVd17cgTjx-9ucJKwqZ",
+    "results": [
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1951554,
+                    "lng": 55.2751579
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.2019781,
+                        "lng": 55.28529405
+                    },
+                    "southwest": {
+                        "lat": 25.1918065,
+                        "lng": 55.27028545000001
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "The Dubai Fountain",
+            "opening_hours": {},
+            "photos": [
+                {
+                    "height": 2167,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/114610628376887622359\"\u003eKirill Tolstikov\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27y8sAj6axMvWoxHerIchABnddh6cJz_SJ58k1rExAkBrQ0TgZZ5_qMvSEs-AwDKocYwIofmw9Ts5GR_nunrY5845Tmz7Xq-KDbp-Av8M6nWUNZNFrpyNmLW1Frv4xnPT_vKMoqdNl5lLzGNmEV8fLr_uvAUwkeR3IS8UeugKnx60vHE",
+                    "width": 3853
+                }
+            ],
+            "place_id": "ChIJP_HMuyloXz4RyC5haEhlfT4",
+            "plus_code": {
+                "compound_code": "57WG+33 Dubai - United Arab Emirates",
+                "global_code": "7HQQ57WG+33"
+            },
+            "rating": 4.8,
+            "reference": "ChIJP_HMuyloXz4RyC5haEhlfT4",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 101254
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1975134,
+                    "lng": 55.2785005
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19990920000001,
+                        "lng": 55.28030617989273
+                    },
+                    "southwest": {
+                        "lat": 25.19628639999999,
+                        "lng": 55.27760652010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Aquarium & Underwater Zoo",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4640,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/102820966328876502066\"\u003eDarja Stravs Tisu\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27x6Fhsakh6ZohYnS7bneebs5jMwNArAbl9OYTe6Ld58eJGv9samckizj1r0BxtKQ-YfivUK_b7_bjDIRl_mNqX6cm1iCViBbNIJ2O8gdViYhtvxVG_8IBpqgIx2SQmFgRzCwXQ2PzGJEwQ-_QNd8jgKO9vqzG4Jno-0_GmGGnzahIJO",
+                    "width": 6960
+                }
+            ],
+            "place_id": "ChIJRcbZaklDXz4RKd2od-FVCyM",
+            "plus_code": {
+                "compound_code": "57XH+2C Dubai - United Arab Emirates",
+                "global_code": "7HQQ57XH+2C"
+            },
+            "rating": 4.5,
+            "reference": "ChIJRcbZaklDXz4RKd2od-FVCyM",
+            "types": [
+                "aquarium",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 68369
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "City of Arabia - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.0823984,
+                    "lng": 55.319675
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.08491530000001,
+                        "lng": 55.32079695
+                    },
+                    "southwest": {
+                        "lat": 25.07738689999999,
+                        "lng": 55.31720435
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "IMG Worlds of Adventure",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 4592,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/104565593254279983898\"\u003eAhmad Al Saman\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xhJ_J7AAv5Q4RqcCP6SUh0tNFBhWTDc7TT97khHc-aqV-9zg6gru9YQN2Ml2eMdHVfOyaec83Btjh8LYOngLnwxNJQ8OxQmEFHBnZIux8KJJ_zoQzuivGW7EKLucFoOiPs3ya4m4w2QOPL19m3e21FykwNGthYG8IBrm7F-YL895GO",
+                    "width": 8160
+                }
+            ],
+            "place_id": "ChIJs4NBKX9lXz4RwvniHGkNvxA",
+            "plus_code": {
+                "compound_code": "38J9+XV Dubai - United Arab Emirates",
+                "global_code": "7HQQ38J9+XV"
+            },
+            "rating": 4.4,
+            "reference": "ChIJs4NBKX9lXz4RwvniHGkNvxA",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 30071
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Al Fahidi - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.2642363,
+                    "lng": 55.30026429999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.26585055000001,
+                        "lng": 55.30175297989273
+                    },
+                    "southwest": {
+                        "lat": 25.26220514999999,
+                        "lng": 55.29905332010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Al Fahidi Historical Neighbourhood",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4000,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/100924891610657555321\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27y39BEkXCampgyRo_OVu2wV0010O0qjIMoKc7cDtqveQYKprXvc05JvC5Hc-8SdvBt0418_YpEo8TcHnpY03vj13U_O0rHLp6OanGtfJjr581y6KaaRVYg8p3Xe6i3L0Kb7av8h0ooQRUC5x9Y4mML0QpYfh96bpjPNOyMx6ufFq8lg",
+                    "width": 3000
+                }
+            ],
+            "place_id": "ChIJpUWZXTdDXz4R_lcmpwt-qFQ",
+            "plus_code": {
+                "compound_code": "7872+M4 Dubai - United Arab Emirates",
+                "global_code": "7HQQ7872+M4"
+            },
+            "rating": 4.6,
+            "reference": "ChIJpUWZXTdDXz4R_lcmpwt-qFQ",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 14456
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "City Walk - Al Wasl - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.2061297,
+                    "lng": 55.260524
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.20744572989272,
+                        "lng": 55.26203972989272
+                    },
+                    "southwest": {
+                        "lat": 25.20474607010728,
+                        "lng": 55.25934007010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The Green Planet",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/115571508916970835300\"\u003eANEESH PRADEEP\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27z-4OVFvKGj2KoJK4OtitRW_P3iVodTpv48X4gW3T6_7Al5P8E1NGov0zQQvt3XR5UYg7bw5z8wv2oz09zI2OeimJ4Mt360sdN8spzDTEn_CNj8IihIS-pvL7y02IDAuPzFBF0ZEyCRN48TU-VVLpNFRtbAJ3c3D-htD-l923fgp032",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJ9aSXmGVCXz4RQJArGtVv0dg",
+            "plus_code": {
+                "compound_code": "6746+F5 Dubai - United Arab Emirates",
+                "global_code": "7HQQ6746+F5"
+            },
+            "rating": 4.4,
+            "reference": "ChIJ9aSXmGVCXz4RQJArGtVv0dg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 9225
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "1 Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.197197,
+                    "lng": 55.27437639999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19910397989272,
+                        "lng": 55.27537084999998
+                    },
+                    "southwest": {
+                        "lat": 25.19640432010727,
+                        "lng": 55.27139305000001
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Burj Khalifa",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 5025,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/101815168333710207772\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27yo2WCck0YmOAOkBTRu9d2okImeLx7QaD4HiWol-As8Hk1cMgBIEg-FyyO_aIXkomAcz_Qt_MZSJz6v_6ijWyUahc0ZTefO3vNcXkdee-72aWkqcs9BCkz8apLPiD62bkV33aEsZavsbCFYJlKyIDm9e9L6zWlRtZ3YuamTrUErV_7N",
+                    "width": 3853
+                }
+            ],
+            "place_id": "ChIJS-JnijRDXz4R4rfO4QLlRf8",
+            "plus_code": {
+                "compound_code": "57WF+VQ Dubai - United Arab Emirates",
+                "global_code": "7HQQ57WF+VQ"
+            },
+            "rating": 4.7,
+            "reference": "ChIJS-JnijRDXz4R4rfO4QLlRf8",
+            "types": [
+                "landmark",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 153670
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "44J9+V7P Atlantis, The Palm - The Palm Jumeirah - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1315848,
+                    "lng": 55.1184034
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.13319727989272,
+                        "lng": 55.11993377989272
+                    },
+                    "southwest": {
+                        "lat": 25.13049762010727,
+                        "lng": 55.11723412010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "The Lost Chambers Aquarium at Aquaventure World",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 2985,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/105061099394492403376\"\u003eTerpsichore\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27yNxX2iIWrFVGdwBN67whoMDd5w4jIFJWSn48L6wGBvmIG18Guey93lJKvQMd7p5OaxcapAHGld0lSiX4wj1vQgzTLLOkISkhn5WQgfZ6ydveQ8LhdvUQ2QjOIkXaleQXc9JsIzcu5iMu_FA-DNc_1NPpYi8n8-YRZ4YA43USCYQH5p",
+                    "width": 3978
+                }
+            ],
+            "place_id": "ChIJ0Wo4qj8VXz4RmuOI9BArrhc",
+            "rating": 4.5,
+            "reference": "ChIJ0Wo4qj8VXz4RmuOI9BArrhc",
+            "types": [
+                "aquarium",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 11563
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Zabeel Park, Gate No- 6 & 7 Area - B - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.2275573,
+                    "lng": 55.2965622
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.22892247989272,
+                        "lng": 55.29790662989272
+                    },
+                    "southwest": {
+                        "lat": 25.22622282010728,
+                        "lng": 55.29520697010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Garden Glow",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/105237963835486471582\"\u003eahmed yahya\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xsXCQ6Gi5v297t-wdxsOSQmdiUWm8CEaeTacZQoJxRKpK5UMU6rWlTJUhbD-LTfC7SLcqTAlJRJC3E_aLOFzcwKrpzI0ZTqEufAVrHF6_HThchJfCKBwGFl6CZGFJVyldtVIk_q4-39BRYSLMSSHaVF4EXXzHRkTb4rOuQ2XCPLQG1",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJwyGLXcFCXz4RthyG7eNRSRk",
+            "plus_code": {
+                "compound_code": "67HW+2J Dubai - United Arab Emirates",
+                "global_code": "7HQQ67HW+2J"
+            },
+            "rating": 4.2,
+            "reference": "ChIJwyGLXcFCXz4RthyG7eNRSRk",
+            "types": [
+                "amusement_park",
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 16552
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Zabeel Park Jogging Track - Za'abeel - Al Kifaf - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.2354522,
+                    "lng": 55.30034089999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.2376746,
+                        "lng": 55.30183972989272
+                    },
+                    "southwest": {
+                        "lat": 25.23310539999999,
+                        "lng": 55.29914007010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/museum-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/monument_pinlet",
+            "name": "Dubai Frame",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 4032,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/111516931838483992808\"\u003eRajasekhar Vanapalli\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27wEPbF9QfAtvZcMj7kHVqKuWUIcoZix_8UCRSjGZAgt2uvx6l2QkwMHGkhiJqm4AQBpcZuFCDxIfDx5yeqDWW2hKA0uK1c7hShHRxnhQzjrocBN0SUprjuJi32BhC9KcsiRmq4CxjrTjA90B_riIlV6nZeQsq4O3xF6egM9hMmksenv",
+                    "width": 3024
+                }
+            ],
+            "place_id": "ChIJQZ3ZINtCXz4RmFeoAa81MPk",
+            "plus_code": {
+                "compound_code": "68P2+54 Dubai - United Arab Emirates",
+                "global_code": "7HQQ68P2+54"
+            },
+            "rating": 4.6,
+            "reference": "ChIJQZ3ZINtCXz4RmFeoAa81MPk",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 62425
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Burj Khalifa - Burj Khalifa Blvd - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1943843,
+                    "lng": 55.2735508
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19553142989272,
+                        "lng": 55.27455680000001
+                    },
+                    "southwest": {
+                        "lat": 25.19283177010728,
+                        "lng": 55.27177
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Burj Park",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 707,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/117919116827270063282\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xt3PLu4eq_b9IYpqm7SISIZhhcbfFLIKlQP2L-PsIZU9BA-4wNEQkIy78OXUdb_voGifJ_z_ADzjSKuWRBRDJzKbOOpuRYpOyk91w7rEzuF3oAFRvaSgVGcYVByvavtpgCEF02c-w2oOp8adJE-lfbqfY1FxKCp1BwK0vuzkYU4gi8",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJ2en7dCpoXz4Rniz_tpr3Xk4",
+            "plus_code": {
+                "compound_code": "57VF+QC Dubai - United Arab Emirates",
+                "global_code": "7HQQ57VF+QC"
+            },
+            "rating": 4.8,
+            "reference": "ChIJ2en7dCpoXz4Rniz_tpr3Xk4",
+            "types": [
+                "park",
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 57217
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Dubai Mall - Unit GF - 207 - Financial Center Rd - next to Ice Rink - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.196355,
+                    "lng": 55.2798217
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19785882989272,
+                        "lng": 55.28184574999999
+                    },
+                    "southwest": {
+                        "lat": 25.19515917010727,
+                        "lng": 55.27896515000001
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Ice Rink",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 747,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/112110381564679864846\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27x-VllHQGIPXNcYrrR3DvmTR8tm4MtBhFtcB0mNWLXmjhlWsOHuSKkm5buIP02xYSKWrUoqRlndGHLUsdtPYj-Dq8drzFWmGArJGZclm9-VHmysVp6ZjoKSdA_brylGsiPNqfehu24X8CLhhb-DsyAsFUS_RaKpwBjUDjXLxNzboLua",
+                    "width": 1142
+                }
+            ],
+            "place_id": "ChIJ0Yv9GShoXz4R5t9gYCGvNHs",
+            "plus_code": {
+                "compound_code": "57WH+GW Dubai - United Arab Emirates",
+                "global_code": "7HQQ57WH+GW"
+            },
+            "price_level": 2,
+            "rating": 4.5,
+            "reference": "ChIJ0Yv9GShoXz4R5t9gYCGvNHs",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8045
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Sheikh Mohammed bin Rashid Blvd - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.195617,
+                    "lng": 55.271879
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19709297989272,
+                        "lng": 55.27400729999999
+                    },
+                    "southwest": {
+                        "lat": 25.19439332010728,
+                        "lng": 55.2687013
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Opera",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 1264,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/112388732256727948390\"\u003eDubai Opera\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xkSNPEtlT5nMc2zIk5_jlEK98Y3yMDtn60n5wVV5br0LSknd7nLHLdLsdaEv7qzUSkd2dbtPlwHlBNuISuzrsp-fodb3F-sKMRwF9QBtWI-wy8jtuUN068MRBGkMDVM06TMSqwGqB_E__RTZnjb9koda_kjXXUsPCxsWUJyETrRtWy",
+                    "width": 1747
+                }
+            ],
+            "place_id": "ChIJkdkorypoXz4RY_9KOq__Vcg",
+            "plus_code": {
+                "compound_code": "57WC+6Q Dubai - United Arab Emirates",
+                "global_code": "7HQQ57WC+6Q"
+            },
+            "rating": 4.7,
+            "reference": "ChIJkdkorypoXz4RY_9KOq__Vcg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 8119
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Street 3 - Al Barsha - Al Barsha South - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.0600069,
+                    "lng": 55.24446469999999
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.06538014999999,
+                        "lng": 55.25124555000001
+                    },
+                    "southwest": {
+                        "lat": 25.05611915000001,
+                        "lng": 55.23990974999999
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/park-71.png",
+            "icon_background_color": "#4DB546",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/tree_pinlet",
+            "name": "Dubai Miracle Garden",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 3128,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/112346135235899392667\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xDmJHsIbNd02H3xcflxtA6yHtukzG9h3aB6fCpYp0aPObWDwz7DXIsGgTjN8_60h3iASHufeHto_xgwj2GVoadW_nR3sZvPKi85SIT8Y-irsY68CKM0t4PAaZSpo3eT4ul8um37Ty5ge3lOJXNnQD2TCPE8KwA20HYEfJ-s3ctc5V5",
+                    "width": 3022
+                }
+            ],
+            "place_id": "ChIJX1IwkDRsXz4RmwA1KiMqKG0",
+            "plus_code": {
+                "compound_code": "366V+2Q Dubai - United Arab Emirates",
+                "global_code": "7HQQ366V+2Q"
+            },
+            "rating": 4.6,
+            "reference": "ChIJX1IwkDRsXz4RmwA1KiMqKG0",
+            "types": [
+                "tourist_attraction",
+                "park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 82339
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "burj khalifa - Blvd Dubai Unit LG - 089 - Sheikh Mohammed bin Rashid Blvd - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1974035,
+                    "lng": 55.27602150000001
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19855812989272,
+                        "lng": 55.27716290000001
+                    },
+                    "southwest": {
+                        "lat": 25.19585847010728,
+                        "lng": 55.27259729999999
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "At The Top, Burj Khalifa",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 3024,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/108951857385257160882\"\u003eZaen\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xUafc8Yr81D3SEx5532WIqNzpEKhMW1QJDFOJP-E276xLS5HtRwckxGr-YAdRldzNFWdCvGScwlp4-lSZro_BFyDOouDgkT9LnjE0i0xCURzLaaWvI_hDuvXcNRG-kesZfgFPqsXoQAJqqABsEy9In703ffLCszGlN5iDZmg7FZj8n",
+                    "width": 4032
+                }
+            ],
+            "place_id": "ChIJE1LWwt9DXz4RAa3pNktz2EA",
+            "plus_code": {
+                "compound_code": "57WG+XC Dubai - United Arab Emirates",
+                "global_code": "7HQQ57WG+XC"
+            },
+            "rating": 4.3,
+            "reference": "ChIJE1LWwt9DXz4RAa3pNktz2EA",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 3794
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Behind Mashreq Bank - Sheikh Zayed Rd - Al Quoz - Al Quoz 4 - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1602516,
+                    "lng": 55.2334498
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.16165272989272,
+                        "lng": 55.23484472989271
+                    },
+                    "southwest": {
+                        "lat": 25.15895307010728,
+                        "lng": 55.23214507010726
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "3D World Selfie Museum Dubai",
+            "opening_hours": {
+                "open_now": false
+            },
+            "photos": [
+                {
+                    "height": 999,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/102590462456745836156\"\u003eLunatic Alam\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27y2beA3bdQn_995_OipQUH4vXmxYkXED-L_6XhoOr1m_p7kh8xTnbDxoH57Eo1i17zDX_i4gS6YTy5r_HGhaaQtJDI7I27iddK8E629kIKfams4ZAvG9GhFjDM9A6V3IHr9-9IXeL3OkVe03DJ9gb1mM51qQCuMXTUUxAJ4y1Yt7non",
+                    "width": 1600
+                }
+            ],
+            "place_id": "ChIJI6agfwFpXz4RPDeFqsIdo20",
+            "plus_code": {
+                "compound_code": "566M+49 Dubai - United Arab Emirates",
+                "global_code": "7HQQ566M+49"
+            },
+            "rating": 4.6,
+            "reference": "ChIJI6agfwFpXz4RPDeFqsIdo20",
+            "types": [
+                "tourist_attraction",
+                "amusement_park",
+                "museum",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 629
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "شارع - Al Safa - Jumeirah 2 - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1918143,
+                    "lng": 55.2429717
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19378087989272,
+                        "lng": 55.24471927989272
+                    },
+                    "southwest": {
+                        "lat": 25.19108122010728,
+                        "lng": 55.24201962010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#7B9EB0",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Water Canal",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 667,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/116640498079345407504\"\u003eAzaarudeen Dadamiyan\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27y4xBTwpUC-zy885uesxoqmVpP01OSY3Q_lL9AIUDvDMQFk1L-D4IsfTbg6TFIOtQoo_oxW9vkmeekl0x3NmL6g7FqtUFNzLdADDLTnqaUmzQ8rdfGjHppOnQxubXVFcJEzKRqaXGZMnrIr9SWAqUFnB6Obv120yX8U7iX1MUqVgcuf",
+                    "width": 1000
+                }
+            ],
+            "place_id": "ChIJJcpLBWNCXz4RZuBO6_Uqmxg",
+            "plus_code": {
+                "compound_code": "56RV+P5 Dubai - United Arab Emirates",
+                "global_code": "7HQQ56RV+P5"
+            },
+            "rating": 4.6,
+            "reference": "ChIJJcpLBWNCXz4RZuBO6_Uqmxg",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 1785
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Business Bay - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1848778,
+                    "lng": 55.2739907
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.18638942989272,
+                        "lng": 55.27567012989272
+                    },
+                    "southwest": {
+                        "lat": 25.18368977010728,
+                        "lng": 55.27297047010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Water Canal Walk",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 2160,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/101420157834365083967\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27yDkeJbunoZDmSpNlnHWHj9inAwvbapqJIZJbprpkSNV6wbDPSZV0YZqzdIitEziMX7YqiA2fs4qucqOOtEvoEh4Mx4JSSu1dsRVFWtRpIhtwOkxkVSQ9ggIbGMcv6PJObUHor865TLw3wKEXbMLaPGZvQdVZiC_Ql4dnT8U7CdQpKQ",
+                    "width": 3840
+                }
+            ],
+            "place_id": "ChIJn0g3ajJoXz4RA1BL0GzsvLc",
+            "plus_code": {
+                "compound_code": "57MF+XH Dubai - United Arab Emirates",
+                "global_code": "7HQQ57MF+XH"
+            },
+            "rating": 4.6,
+            "reference": "ChIJn0g3ajJoXz4RA1BL0GzsvLc",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 261
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "57WJ+R62 - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1970173,
+                    "lng": 55.2805145
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19833957989272,
+                        "lng": 55.28206682989272
+                    },
+                    "southwest": {
+                        "lat": 25.19563992010728,
+                        "lng": 55.27936717010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Dino",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 1332,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/103582596448803372019\"\u003ejofry kt\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27xTO2mzfnv7rAyzk-SZYNIOOfE8PM1CxH3JM85rpPYsMb2RnY7bFo1NZm9ZhIpl39j0-RVigpl9rm3PPjfI9gZ3qNLMLpac9yOc7PXKHU58l_bs-coRy0L_svKuqIKccdsdXBjlxCwvfXK-4PvVrXxzTpcLSAy0rXilyMeIVFeMv0Vy",
+                    "width": 2368
+                }
+            ],
+            "place_id": "ChIJhX-JhoJCXz4RgdOpo9VsM4I",
+            "rating": 4.6,
+            "reference": "ChIJhX-JhoJCXz4RgdOpo9VsM4I",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 532
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "57VH+XPG - Downtown Dubai - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1949399,
+                    "lng": 55.279322
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.19621362989272,
+                        "lng": 55.28073307989272
+                    },
+                    "southwest": {
+                        "lat": 25.19351397010728,
+                        "lng": 55.27803342010728
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Dubai Mall Waterfalls",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 600,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/108229906064986989207\"\u003eМиша Полковский\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27wkM7VSe66qUgcE4eDJFtLh5MobWm7HF6jM2jKEwCxbx2cCcBDvRP7ht1K9C1_1A9n3NvqSGFJHNJtO3p0mjoznjuOyOuplTorl_oFUW8KCLeUdkQBkbt8E9xt7HLtOTFWFvgyvlH9QOXhxW24sbr-6GzfAjj5QJIfJ7AsG-0tGOJFs",
+                    "width": 900
+                }
+            ],
+            "place_id": "ChIJu1aaeIJCXz4R7Tjkao0Aelw",
+            "rating": 4.7,
+            "reference": "ChIJu1aaeIJCXz4R7Tjkao0Aelw",
+            "types": [
+                "tourist_attraction",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 33430
+        },
+        {
+            "business_status": "OPERATIONAL",
+            "formatted_address": "Dubai Mall on Financial Center Street - Dubai - United Arab Emirates",
+            "geometry": {
+                "location": {
+                    "lat": 25.1987531,
+                    "lng": 55.2796295
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": 25.20015322989272,
+                        "lng": 55.28101702989272
+                    },
+                    "southwest": {
+                        "lat": 25.19745357010727,
+                        "lng": 55.27831737010727
+                    }
+                }
+            },
+            "icon": "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/generic_business-71.png",
+            "icon_background_color": "#13B5C7",
+            "icon_mask_base_uri": "https://maps.gstatic.com/mapfiles/place_api/icons/v2/generic_pinlet",
+            "name": "Mermaids of Arabia",
+            "opening_hours": {
+                "open_now": true
+            },
+            "photos": [
+                {
+                    "height": 720,
+                    "html_attributions": [
+                        "\u003ca href=\"https://maps.google.com/maps/contrib/106937029075158106218\"\u003eA Google User\u003c/a\u003e"
+                    ],
+                    "photo_reference": "AWYs27yhY_C5q1E36-04QmxI5psHi1kdD-f9gEDnZZCnuWWoDr5XMfEO2TE2DJQbykiSIMhQLzpXNwylI1Nk4asa2lvTGugtqYTh2cxjCEE3JM8ysvfJR8oeU3rKyiWY1QSbtFhR2aHL_LC2ae-YbRHd3526HHl0t1gg9-LAUveI8_iWgc5Q",
+                    "width": 1280
+                }
+            ],
+            "place_id": "ChIJiUM6lRNqXz4RFGy1_Wv4y6U",
+            "plus_code": {
+                "compound_code": "57XH+GV Dubai - United Arab Emirates",
+                "global_code": "7HQQ57XH+GV"
+            },
+            "rating": 4.7,
+            "reference": "ChIJiUM6lRNqXz4RFGy1_Wv4y6U",
+            "types": [
+                "tourist_attraction",
+                "amusement_park",
+                "point_of_interest",
+                "establishment"
+            ],
+            "user_ratings_total": 470
+        }
+    ],
+    "status": "OK"
+}
