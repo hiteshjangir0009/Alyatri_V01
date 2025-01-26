@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveScreenHeight } from 'react-native-responsive-dimensions'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Font_poppins } from '../../Utils/Constants/fonts'
-import { Custom_Header } from '../../Utils/Headers'
+import { Custom_Header, Page_name } from '../../Utils/Headers'
 import { Images } from '../../Utils/Constants/Images'
 import { HeaderNav_lang } from '../../Utils/Constants/Language_content'
 import { useSelector } from 'react-redux'
@@ -27,7 +27,7 @@ const Trips = ({ navigation }) => {
 
     const route = useRoute()
     const { payLoad } = route.params
-    
+
     // backbutton handle
     useEffect(() => {
         const backAction = () => {
@@ -122,7 +122,7 @@ const Trips = ({ navigation }) => {
                         style={{
                             flexDirection: 'row',
                             justifyContent: "space-around",
-                            marginVertical:10
+                            marginVertical: 10
                         }}>
                         {/* start */}
                         <View>
@@ -168,11 +168,11 @@ const Trips = ({ navigation }) => {
                 <View style={styles.button_container}>
                     <Custom_button text={'Select places & events'} onPress={() => {
                         setModal_state(false)
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             Navigation('itenary')
-                        },350)
-                       
-                        }} />
+                        }, 350)
+
+                    }} />
                 </View>
             </View>
         </View>
@@ -207,13 +207,7 @@ const Trips = ({ navigation }) => {
                 {/* header */}
                 <View style={{ flexGrow: 1 }}>
                     <Custom_Header nav={navigation} activity={'trips'} CustomNav={payLoad == 'setting' ? true : false} />
-                </View>
-
-                {/* page name */}
-                <View style={styles.page_name_container}>
-                    <Text style={styles.page_name_text}>
-                        {HeaderNav_lang.Trips[lang]}
-                    </Text>
+                    <Page_name name={HeaderNav_lang.Trips[lang]} />
                 </View>
 
 

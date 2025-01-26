@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveScreenHeight } from 'react-native-responsive-dimensions'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Font_poppins } from '../../Utils/Constants/fonts'
-import { Custom_Header } from '../../Utils/Headers'
+import { Custom_Header, Page_name } from '../../Utils/Headers'
 import { Images } from '../../Utils/Constants/Images'
 import Custom_button from '../../Utils/Buttons'
 import { useSelector } from 'react-redux'
@@ -79,6 +79,7 @@ const Profile = ({ navigation }) => {
       {/* header */}
       <View style={{}}>
         <Custom_Header nav={navigation} activity={'profile'} CustomNav={payLoad == 'setting' ? true : false} />
+        <Page_name name={HeaderNav_lang.Profile[lang]} />
       </View>
 
       <KeyboardAvoidingView
@@ -87,13 +88,6 @@ const Profile = ({ navigation }) => {
         keyboardVerticalOffset={Platform.OS === 'ios' ? 70 : 50}
       >
         <ScrollView automaticallyAdjustKeyboardInsets={true} keyboardShouldPersistTaps="handled">
-          {/* page name */}
-          <View style={styles.page_name_container}>
-            <Text style={styles.page_name_text}>
-              {HeaderNav_lang.Profile[lang]}
-            </Text>
-          </View>
-
 
           {/* container */}
           <View style={styles.container}>

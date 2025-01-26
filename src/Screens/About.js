@@ -1,7 +1,7 @@
 import { Dimensions, FlatList, Image, KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {Custom_Header} from '../Utils/Headers'
+import { Custom_Header, Page_name } from '../Utils/Headers'
 import { Colors } from '../Utils/Constants/Colors'
 import { Font_poppins } from '../Utils/Constants/fonts'
 import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
@@ -30,14 +30,9 @@ const About = ({ navigation }) => {
       {/* header */}
       <View>
         <Custom_Header nav={navigation} />
+        <Page_name name={'About the app'} />
       </View>
 
-      {/* page name */}
-      <View style={styles.page_name_container}>
-        <Text style={styles.page_name_text}>
-          About the App
-        </Text>
-      </View>
 
       <ScrollView showsVerticalScrollIndicator={false}>
 

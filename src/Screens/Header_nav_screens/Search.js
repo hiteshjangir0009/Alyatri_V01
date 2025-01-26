@@ -1,7 +1,7 @@
 import { BackHandler, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Custom_Header } from '../../Utils/Headers'
+import { Custom_Header, Page_name } from '../../Utils/Headers'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Images } from '../../Utils/Constants/Images'
 import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
@@ -39,15 +39,10 @@ const Search = ({ navigation }) => {
 
             {/* header */}
             <View>
-                <Custom_Header nav={navigation} activity={'search'} CustomNav={payLoad == 'setting' ? true : false}/>
+                <Custom_Header nav={navigation} activity={'search'} CustomNav={payLoad == 'setting' ? true : false} />
+                <Page_name name={HeaderNav_lang.Search[lang]} />
             </View>
 
-            {/* page name */}
-            <View style={styles.page_name_container}>
-                <Text style={styles.page_name_text}>
-                    {HeaderNav_lang.Search[lang]}
-                </Text>
-            </View>
 
             {/* search box */}
             <View style={styles.search_box_container}>

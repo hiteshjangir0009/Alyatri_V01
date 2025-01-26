@@ -1,6 +1,6 @@
 import { Dimensions, FlatList, Image, KeyboardAvoidingView, Platform, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
-import {Custom_Header} from '../Utils/Headers'
+import {Custom_Header, Page_name} from '../Utils/Headers'
 import { Colors } from '../Utils/Constants/Colors'
 import { Font_poppins } from '../Utils/Constants/fonts'
 import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
@@ -29,6 +29,7 @@ const Contacts = ({ navigation }) => {
       {/* header */}
       <View>
         <Custom_Header nav={navigation} />
+          <Page_name name={'Contacts'} />
       </View>
 
       <KeyboardAvoidingView
@@ -41,12 +42,6 @@ const Contacts = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollContent}
         >
-          {/* page name */}
-          <View style={styles.page_name_container}>
-            <Text style={styles.page_name_text}>
-              Contacts
-            </Text>
-          </View>
 
 
           {/* container */}

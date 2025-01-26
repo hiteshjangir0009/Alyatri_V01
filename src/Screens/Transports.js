@@ -1,7 +1,7 @@
 import { Dimensions, FlatList, Image, StyleSheet, Text, Touchable, TouchableOpacity, View } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import {Custom_Header} from '../Utils/Headers'
+import { Custom_Header, Page_name } from '../Utils/Headers'
 import { Colors } from '../Utils/Constants/Colors'
 import { Font_poppins } from '../Utils/Constants/fonts'
 import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
@@ -18,13 +18,7 @@ const Transports = ({ navigation }) => {
       {/* header */}
       <View>
         <Custom_Header nav={navigation} />
-      </View>
-
-      {/* page name */}
-      <View style={styles.page_name_container}>
-        <Text style={styles.page_name_text}>
-          Public transports
-        </Text>
+        <Page_name name={'Public transports'} />
       </View>
 
 
@@ -166,13 +160,13 @@ const styles = StyleSheet.create({
 
   },
 
-  about_container:{
-    marginVertical:30
+  about_container: {
+    marginVertical: 30
   },
-  about_text:{
-    color:Colors.Text_base_color,
-    fontFamily:Font_poppins.Regular_font,
-    fontSize:responsiveFontSize(1.8),
+  about_text: {
+    color: Colors.Text_base_color,
+    fontFamily: Font_poppins.Regular_font,
+    fontSize: responsiveFontSize(1.8),
   },
 })
 

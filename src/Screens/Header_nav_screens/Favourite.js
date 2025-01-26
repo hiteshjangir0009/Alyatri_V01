@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { responsiveFontSize, responsiveScreenHeight } from 'react-native-responsive-dimensions'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Font_poppins } from '../../Utils/Constants/fonts'
-import { Custom_Header } from '../../Utils/Headers'
+import { Custom_Header, Page_name } from '../../Utils/Headers'
 import { Images } from '../../Utils/Constants/Images'
 import { useSelector } from 'react-redux'
 import { HeaderNav_lang } from '../../Utils/Constants/Language_content'
@@ -50,15 +50,8 @@ const Favourite = ({ navigation }) => {
             {/* header */}
             <View style={{ flexGrow: 1 }}>
                 <Custom_Header nav={navigation} activity={'favourite'} CustomNav={payLoad == 'setting' ? true : false} />
+                <Page_name name={HeaderNav_lang.Favourite[lang]} />
             </View>
-
-            {/* page name */}
-            <View style={styles.page_name_container}>
-                <Text style={styles.page_name_text}>
-                    {HeaderNav_lang.Favourite[lang]}
-                </Text>
-            </View>
-
 
             {/* container */}
             <View style={styles.container}>

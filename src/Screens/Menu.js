@@ -137,7 +137,7 @@ const Menu = ({ navigation }) => {
               style={styles.about_container}
             >
               <FastImage
-                style={styles.about_image}
+                style={styles.logout_image}
                 source={Images.Logout_icon}
               />
               <Text style={styles.about_text}>
@@ -258,6 +258,10 @@ const styles = StyleSheet.create({
   about_image: {
     height: 30,
     width: 30
+  },
+  logout_image: {
+    height: 25,
+    width: 25
   },
   about_text: {
     marginHorizontal: 15,

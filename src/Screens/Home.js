@@ -15,7 +15,8 @@ import { Loader } from '../Utils/Loader'
 import { ALERT_TYPE, AlertNotificationRoot, Toast } from 'react-native-alert-notification'
 import { Sub_Category_layout } from '../Utils/SubCategory'
 import { NoData_text } from '../Utils/NoData_text'
-import {Custom_Header} from '../Utils/Headers'
+import { Custom_Header } from '../Utils/Headers'
+import { Home_sliders } from '../Utils/Home_sliders'
 
 
 export const month_data = [
@@ -146,7 +147,8 @@ const Home = ({ navigation }) => {
 
   }
 
-  // api filter requests
+
+  // api requests for filter
   const Home_filter_API = async ({ Categoryitem, SubCategoriesitem }) => {
     setLoading(true)
 
@@ -197,18 +199,6 @@ const Home = ({ navigation }) => {
     );
   }
 
-  // date
-  const date = (item) => {
-    const year = item.date.slice(0, 4)
-    const month = item.date.slice(5, 7)
-    const date = item.date.slice(8, 11)
-
-    const month_name = month_data.find((e) => e.id === month)
-
-    return `${date} ${month_name.month} ${year}`
-  }
-
-
 
   return (
     <AlertNotificationRoot>
@@ -245,7 +235,7 @@ const Home = ({ navigation }) => {
               {/* categories */}
               <View style={styles.category}>
                 {categorydata.map((item) => (
-                  <View key={item.id}>
+                  <View key={item._id}>
                     <TouchableOpacity
                       onPress={() => {
                         setCategory_idselected(item._id)
@@ -345,236 +335,15 @@ const Home = ({ navigation }) => {
                 <View>
 
                   {/* trending now */}
-                  <View style={styles.content_container}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        // backgroundColor:'green'
-                      }}>
-                      <Text style={styles.content_heading_text}>
-                        {Home_lang.TrendingNow[lang]}
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => { Navigation('viewall', { page: 'Trending now' }) }}
-                        style={{ alignSelf: 'center' }}
-                      >
-                        <Text
-                          style={styles.content_viewall_text}>
-                          {Home_lang.ViewAll[lang]}
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-
-                    {
-                      Trending.length == 0 ?
-                        (
-                          <NoData_text />
-                        )
-                        :
-                        (
-                          <FlatList
-                            showsHorizontalScrollIndicator={false}
-                            horizontal
-                            data={Trending}
-                            keyExtractor={(item, index) => `${item._id}-${index}`}
-                            renderItem={({ item, index }) => (
-                              <TouchableOpacity
-                                key={index}
-                                onPress={() => { Navigation('blog',{Id:item._id}) }}
-                                style={styles.content_display}>
-                                <FastImage
-                                  style={styles.content_display_image}
-                                  source={{ uri: `${Img_url}${item.image}` }} />
-
-                                <View style={{
-
-                                }}>
-                                  <Text style={styles.content_display_text_up}>
-                                    {item.title[lang]}
-                                  </Text>
-
-                                  <Text
-                                    numberOfLines={2}
-                                    style={styles.content_display_text_down}>
-                                    loremdf sfd frfrc dsdsdsdsdsd sdsdsdsdsdsdsdrtrtr tr tr trt rt r tr trsssdsdsd
-                                  </Text>
-                                </View>
-
-                              </TouchableOpacity>
-                            )}
-
-                          />
-                        )
-                    }
-                  </View>
+                  <Home_sliders Type={'TrendingNow'} nav={navigation} title={'Trending now'} Data={Trending} />
 
 
                   {/* experience now */}
-                  <View style={styles.content_container}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between'
-                      }}>
-                      <Text style={styles.content_heading_text}>
-                        {Home_lang.Experience[lang]}
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => { Navigation('viewall', { page: 'Experience' }) }}
-                        style={{ alignSelf: 'center' }}
-                      >
-                        <Text
-                          style={styles.content_viewall_text}>
-                          {Home_lang.ViewAll[lang]}
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-
-                    {
-                      Experience.length == 0 ?
-                        (
-                          <View>
-                            <NoData_text />
-
-                          </View>
-                        )
-                        :
-                        (
-                          <FlatList
-                            showsHorizontalScrollIndicator={false}
-                            horizontal
-                            data={Experience}
-                            keyExtractor={(item, index) => `${item._id}-${index}`}
-                            renderItem={({ item, index }) => (
-                              <TouchableOpacity
-                                key={index}
-                                onPress={() => Navigation('booking')}
-                                style={styles.content_display}>
-                                <FastImage
-                                  style={styles.content_display_image}
-                                  source={{ uri: `${Img_url}${item.image}` }} />
-
-                                <View style={{
-
-                                }}>
-                                  <Text style={styles.content_display_text_up}>
-                                    {item.title[lang]}
-                                  </Text>
-
-                                  <Text style={styles.experience_display_text_middle}>
-                                    DSDSDSDSDSD
-                                  </Text>
-
-                                  <Text
-                                    numberOfLines={2}
-                                    style={styles.content_display_text_down}>
-                                    {item.location.address}
-                                  </Text>
-                                </View>
-
-                              </TouchableOpacity>
-                            )}
-
-                          />
-                        )
-                    }
-
-                  </View>
+                  <Home_sliders Type={'Experience'} nav={navigation} title={'Experience'} Data={Experience} />
 
 
                   {/* whats on */}
-                  <View style={styles.content_container}>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between'
-                      }}>
-                      <Text style={styles.content_heading_text}>
-                        {Home_lang.WhatsOn[lang]}
-                      </Text>
-                      <TouchableOpacity
-                        style={{ alignSelf: 'center' }}
-                      >
-                        <Text
-                          onPress={() => { Navigation('viewall', { page: `What's on` }) }}
-
-                          style={styles.content_viewall_text}>
-                          {Home_lang.ViewAll[lang]}
-                        </Text>
-                      </TouchableOpacity>
-                    </View>
-
-                    {
-                      WhatsOn.length == 0 ?
-                        (
-                          <NoData_text />
-                        )
-                        :
-                        (
-                          <FlatList
-                            showsHorizontalScrollIndicator={false}
-                            horizontal
-                            data={WhatsOn}
-                            keyExtractor={(item, index) => `${item._id}-${index}`}
-                            renderItem={({ item, index }) => (
-                              <TouchableOpacity
-                                key={index}
-                                onPress={() => { Navigation('booking') }}
-                                style={styles.content_display}>
-                                <FastImage
-                                  style={styles.content_display_image}
-                                  source={{ uri: `${Img_url}${item.image}` }} />
-
-                                <View style={{
-
-                                }}>
-
-                                  <View style={styles.whats_text_view}>
-                                    <FastImage
-                                      style={{
-                                        height: 20,
-                                        width: 20,
-                                        alignSelf: 'center'
-                                      }}
-                                      source={Images.Location_icon}
-                                    />
-                                    <Text numberOfLines={1} style={[styles.content_display_text_up, { marginHorizontal: 10, fontSize: responsiveFontSize(1.9) }]}>
-                                      {item.title[lang]}
-                                    </Text>
-                                  </View>
-
-                                  <View style={styles.whats_text_view}>
-                                    <FastImage
-                                      style={{
-                                        height: 18,
-                                        width: 18,
-                                        alignSelf: 'center'
-                                      }}
-                                      source={Images.Calender_icon}
-                                    />
-                                    <Text style={[styles.experience_display_text_middle, { marginHorizontal: 10, fontSize: responsiveFontSize(1.5) }]}>
-                                      {date(item)}
-                                    </Text>
-                                  </View>
-
-                                  <Text
-                                    numberOfLines={2}
-                                    style={[styles.content_display_text_down, { marginTop: 10 }]}>
-                                    {item.location.address}
-                                  </Text>
-                                </View>
-
-                              </TouchableOpacity>
-                            )}
-
-                          />
-                        )
-                    }
-
-                  </View>
-
-
+                  <Home_sliders Type={'WhatsOn'} nav={navigation} title={`What's on`} Data={WhatsOn} />
 
                 </View>
 
@@ -646,8 +415,6 @@ export const styles = StyleSheet.create({
   },
 
   display_image_container: {
-    // zIndex:1,
-    // position:'absolute',
     width: Dimensions.get('window').width, // Match screen width
     justifyContent: 'center',
     alignItems: 'center', // Center horizontally and vertically
@@ -660,64 +427,7 @@ export const styles = StyleSheet.create({
   },
 
 
-  content_container: {
-    marginHorizontal: 10,
-    marginVertical: responsiveScreenHeight(3),
 
-
-  },
-  content_heading_text: {
-    color: Colors.Text_base_color,
-    fontFamily: Font_poppins.SemiBold_font,
-    fontSize: responsiveFontSize(2.5),
-  },
-  content_viewall_text: {
-    color: Colors.Text_base_color,
-    fontFamily: Font_poppins.SemiBold_font,
-    fontSize: responsiveFontSize(1.5),
-  },
-  content_display: {
-    marginRight: 30,
-  },
-  content_display_image: {
-    height: 150,
-    width: 240,
-    borderTopLeftRadius: 30,
-    borderBottomRightRadius: 30
-  },
-  content_display_text_up: {
-    fontSize: responsiveFontSize(1.5),
-    fontFamily: Font_poppins.Regular_font,
-    color: Colors.Text_pink_color,
-    width: responsiveScreenWidth(40)
-    // alignSelf: 'center',
-    // alignSelf: 'center',
-
-  },
-  content_display_text_down: {
-    fontSize: responsiveFontSize(1.3),
-    width: responsiveScreenWidth(55),
-    fontFamily: Font_poppins.Regular_font,
-
-  },
-
-
-  experience_display_text_middle: {
-    color: Colors.Text_base_color,
-    fontFamily: Font_poppins.SemiBold_font,
-    fontSize: responsiveFontSize(1.8),
-    // alignSelf: 'center',
-    verticalAlign: 'middle',
-    width: responsiveScreenWidth(40)
-
-  },
-
-
-  whats_text_view: {
-    flexDirection: 'row',
-    // backgroundColor:'yellow'
-    marginTop: 5
-  },
 })
 
 

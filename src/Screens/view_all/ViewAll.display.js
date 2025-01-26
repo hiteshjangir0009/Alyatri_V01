@@ -6,6 +6,7 @@ import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } fro
 import { Font_poppins } from '../../Utils/Constants/fonts'
 import { Images } from '../../Utils/Constants/Images'
 import { useRoute } from '@react-navigation/native'
+import { Custom_Header, Page_name } from '../../Utils/Headers'
 
 
 const ViewAll = ({ navigation }) => {
@@ -106,14 +107,9 @@ const ViewAll = ({ navigation }) => {
                 {/* header */}
                 <View>
                     <Custom_Header onPress={() => navigation.goBack()} nav={navigation}/>
+                  <Page_name name={page} />
                 </View>
 
-                {/* page name */}
-                <View style={styles.page_name_container}>
-                    <Text style={styles.page_name_text}>
-                        {page}
-                    </Text>
-                </View>
 
 
                 {/* container */}
