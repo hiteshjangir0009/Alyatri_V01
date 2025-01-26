@@ -134,7 +134,7 @@ const Menu = ({ navigation }) => {
           <View >
             <TouchableOpacity
               onPress={() => logout()}
-              style={styles.about_container}
+              style={[styles.about_container, { paddingHorizontal: 15 }]}
             >
               <FastImage
                 style={styles.logout_image}
