@@ -384,7 +384,7 @@ export const styles = StyleSheet.create({
   category_container: {
     borderRadius: 40,
     backgroundColor: Colors.Primary_color,
-    elevation: 5,
+    elevation: 15,
     shadowColor: '#000',
 
   },
