@@ -128,10 +128,30 @@ export const HeaderNav_lang = {
         ar: 'بحث',
     },
     Trips: {
-        en: 'Trips',
-        hi: 'यात्राएँ',
-        ch: '旅行',
-        ar: 'الرحلات',
+        page_name: {
+            en: 'Trips',
+            hi: 'यात्राएँ',
+            ch: '旅行',
+            ar: 'الرحلات',
+        },
+        MyTrips: {
+            "en": "My Trips",
+            "hi": "मेरी यात्राएँ",
+            "ch": "我的旅行",
+            "ar": "رحلاتي"
+        },
+        Guides: {
+            "en": "Guides",
+            "hi": "मार्गदर्शक",
+            "ch": "指南",
+            "ar": "أدلة"
+        },
+        CreateYourItinerary: {
+            "en": "Create Your Itinerary",
+            "hi": "अपना यात्रा कार्यक्रम बनाएँ",
+            "ch": "创建您的行程",
+            "ar": "أنشئ خط سير رحلتك"
+        }
     },
     Favourite: {
         en: 'Favourites',
@@ -145,18 +165,7 @@ export const HeaderNav_lang = {
         ch: '资料',
         ar: 'الملف الشخصي',
     },
-    MyTrips: {
-        en: 'My Trips',
-        hi: 'मेरी यात्राएँ',
-        ch: '我的旅行',
-        ar: 'رحلاتي',
-    },
-    Guides: {
-        en: 'Guides',
-        hi: 'मार्गदर्शक',
-        ch: '指南',
-        ar: 'الأدلة',
-    },
+
     Name: {
         en: 'Name',
         hi: 'नाम',

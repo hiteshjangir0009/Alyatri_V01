@@ -230,7 +230,9 @@ const Home = ({ navigation }) => {
             </View>
           ) : (
 
-            <ScrollView>
+            <ScrollView
+            showsVerticalScrollIndicator={false}
+            >
 
               {/* categories */}
               <View style={styles.category}>

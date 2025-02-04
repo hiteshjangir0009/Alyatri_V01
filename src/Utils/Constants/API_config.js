@@ -1,7 +1,8 @@
 import { Alerts } from "./constants/constants";
 
 
-export const Live_url = 'http://16.170.41.109/api/v1/app/';
+export const Base_url = 'http://16.170.41.109/api/v1/app/';
+export const Live_url = 'https://alyatri.com/api/v1/app/';
 export const Img_url = 'http://16.170.41.109/image/';
 
 // api names

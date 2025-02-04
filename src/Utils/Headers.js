@@ -33,20 +33,25 @@ export const navdata = [
 
 export const Custom_Header = ({ name, nav, activity, Logo, CustomNav }) => {
     // back button handler
-    // useEffect(() => {
-    //     const backAction = () => {
-    //         // setstate(true)
-    //         nav.goBack()
-    //         return true;
-    //     };
+    useEffect(() => {
+        const backAction = () => {
+            // setstate(true)
+            if (CustomNav == true) {
+                nav.goBack()   
+            }
+            else {
+                nav.popToTop()
+            }
+            return true;
+        };
 
-    //     const backHandler = BackHandler.addEventListener(
-    //         'hardwareBackPress',
-    //         backAction,
-    //     );
+        const backHandler = BackHandler.addEventListener(
+            'hardwareBackPress',
+            backAction,
+        );
 
-    //     return () => backHandler.remove();
-    // }, [nav])
+        return () => backHandler.remove();
+    }, [nav])
 
 
     return (
@@ -79,7 +84,7 @@ export const Custom_Header = ({ name, nav, activity, Logo, CustomNav }) => {
                         )
 
                     ) : (<TouchableOpacity
-                        onPress={() => CustomNav ? nav.goBack():nav.popToTop()}
+                        onPress={() => CustomNav==true? nav.goBack():nav.popToTop()}
                     >
                         <Image
                             style={styles.back_image}

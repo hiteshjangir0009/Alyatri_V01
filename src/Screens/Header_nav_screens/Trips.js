@@ -16,7 +16,7 @@ import { useRoute } from '@react-navigation/native'
 
 const Trips = ({ navigation }) => {
     const Navigation = navigation.navigate
-    const select_text = [HeaderNav_lang.MyTrips[lang], HeaderNav_lang.Guides[lang]]
+    const select_text = [HeaderNav_lang.Trips.MyTrips[lang], HeaderNav_lang.Trips.Guides[lang]]
     const [TripName, setTripName] = useState('')
     const [selected, setselected] = useState('')
     const [Start_date, setStart_date] = useState('')
@@ -202,12 +202,12 @@ const Trips = ({ navigation }) => {
 
     return (
         <>
-            <SafeAreaView>
+            <SafeAreaView style={{flex:1}}>
 
                 {/* header */}
-                <View style={{ flexGrow: 1 }}>
+                <View >
                     <Custom_Header nav={navigation} activity={'trips'} CustomNav={payLoad == 'setting' ? true : false} />
-                    <Page_name name={HeaderNav_lang.Trips[lang]} />
+                    <Page_name name={HeaderNav_lang.Trips.page_name[lang]} />
                 </View>
 
 
@@ -220,9 +220,9 @@ const Trips = ({ navigation }) => {
                             fetch_data()
 
                         }}
-                        style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.MyTrips[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
-                        <Text style={{ color: selected == HeaderNav_lang.MyTrips[lang] ? Colors.Text_white_color : Colors.Text_base_color }}>
-                            {HeaderNav_lang.MyTrips[lang]}
+                        style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.Trips.MyTrips[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
+                        <Text style={{ color: selected == HeaderNav_lang.Trips.MyTrips[lang] ? Colors.Text_white_color : Colors.Text_base_color }}>
+                            {HeaderNav_lang.Trips.MyTrips[lang]}
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -232,9 +232,9 @@ const Trips = ({ navigation }) => {
                             fetch_data()
 
                         }}
-                        style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.Guides[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
-                        <Text style={{ color: selected == HeaderNav_lang.Guides[lang] ? Colors.Text_white_color : Colors.Text_base_color }}>
-                            {HeaderNav_lang.Guides[lang]}
+                        style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.Trips.Guides[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
+                        <Text style={{ color: selected == HeaderNav_lang.Trips.Guides[lang] ? Colors.Text_white_color : Colors.Text_base_color }}>
+                            {HeaderNav_lang.Trips.Guides[lang]}
                         </Text>
                     </TouchableOpacity>
                 </View>
@@ -243,43 +243,37 @@ const Trips = ({ navigation }) => {
                 {/* container */}
                 <View style={styles.container}>
 
-                    {
-                        Data.length == 0 ? (
-                            // create Itenary
-                            <View style={styles.I_create_container}>
-                                <Text style={styles.I_create_text}>
-                                    Create your trip itinerary
+
+                    <FlatList
+
+                        data={Data}
+                        renderItem={({ item }) => (
+                            <View style={styles.trip_box}>
+                                <Text numberOfLines={2} style={styles.trip_text_up}>
+                                    Trip
                                 </Text>
-                                <Custom_button text={"Create"} onPress={() => setModal_state(true)} />
+                                <View style={styles.date_container}>
+                                    <Image
+                                        style={{ width: 17, height: 17 }}
+                                        source={Images.Calender_icon} />
+                                    <Text style={styles.trip_text_down}>
+                                        30-12-2021
+                                    </Text>
+                                </View>
+
+
                             </View>
-                        ) : (
-                            <FlatList
+                        )}
+                        ListFooterComponent={<View style={{ height: responsiveScreenHeight(25) }} />}
 
-                                data={Data}
-                                renderItem={({ item }) => (
-                                    <View style={styles.trip_box}>
-                                        <Text numberOfLines={2} style={styles.trip_text_up}>
-                                            Trip
-                                        </Text>
-                                        <View style={styles.date_container}>
-                                            <Image
-                                                style={{ width: 17, height: 17 }}
-                                                source={Images.Calender_icon} />
-                                            <Text style={styles.trip_text_down}>
-                                                30-12-2021
-                                            </Text>
-                                        </View>
+                    />
 
-
-                                    </View>
-                                )}
-                                ListFooterComponent={<View style={{ height: responsiveScreenHeight(25) }} />}
-
-                            />
-                        )
-                    }
-
+                    {/* // create Itenary */}
+                    <View style={styles.I_create_container}>
+                        <Custom_button text={HeaderNav_lang.Trips.CreateYourItinerary[lang]} onPress={() => setModal_state(true)} />
+                    </View>
                 </View>
+
 
 
             </SafeAreaView>
@@ -307,27 +301,11 @@ const Trips = ({ navigation }) => {
 export default Trips
 
 const styles = StyleSheet.create({
-    page_name_container: {
-        // zIndex: -1,
-        // flexGrow: 2,
-        marginTop: responsiveScreenHeight(1),
-        marginHorizontal: 10
-    },
-    page_name_text: {
-        color: Colors.Text_base_color,
-        fontSize: responsiveFontSize(3.5),
-        fontFamily: Font_poppins.SemiBold_font
-    },
+ 
 
     container: {
-        // flex:1,
-        flexGrow: 3,
-        zIndex: 1,
-        height: Dimensions.get('screen').height,
-        backgroundColor: Colors.Primary_color,
-        justifyContent: 'center',  // Add this to center vertically
-        alignItems: 'center',
-
+        flex:1,
+        backgroundColor:Colors.Primary_color,
     },
 
     trip_box: {
@@ -372,16 +350,14 @@ const styles = StyleSheet.create({
     },
 
     I_create_container: {
-        justifyContent: 'center',   // Ensure internal content is centered
-        // alignItems: 'center',        // Ensure internal content is centered
-
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        left: 0,
+        margin:10
     },
     I_create_text: {
-        // backgroundColor:'yellow',
-        color: Colors.Text_grey_color,
-        fontSize: responsiveFontSize(2),
-        marginBottom: 20,
-        fontFamily: Font_poppins.Medium_font
+
     },
 
     modal_container: {

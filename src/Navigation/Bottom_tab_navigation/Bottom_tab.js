@@ -232,8 +232,8 @@ const Bottom_tab_navigation = () => {
 
 const styles = StyleSheet.create({
     image_style: {
-        width: 25,
-        height: 25,
+        width: 22,
+        height: 22,
         alignSelf: 'center',
         // backgroundColor: 'red'
     },

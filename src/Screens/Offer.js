@@ -128,7 +128,7 @@ const Offer = ({ navigation }) => {
           )
           :
           (
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}> 
               {/* container */}
               <View style={styles.container}>
 

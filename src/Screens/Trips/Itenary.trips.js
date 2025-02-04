@@ -9,6 +9,7 @@ import { Images } from '../../Utils/Constants/Images'
 import { responsiveFontSize, responsiveScreenWidth, responsiveWidth } from 'react-native-responsive-dimensions'
 import { Font_poppins } from '../../Utils/Constants/fonts'
 import { month_data } from '../Home'
+import Custom_button from '../../Utils/Buttons'
 
 const data = [
     {
@@ -58,7 +59,7 @@ const Itenary = ({ navigation }) => {
 
     // date
     const date = (item = '2025-01-09 12:00 to 2025-01-15 12:00') => {
-         
+
 
         const year = item.slice(0, 4)
         const month = item.slice(5, 7)
@@ -110,24 +111,24 @@ const Itenary = ({ navigation }) => {
                                 <View style={styles.text_container}>
 
                                     {/* upper */}
-                                    <Text 
-                                    numberOfLines={1}
-                                    style={styles.Upper_text}>
+                                    <Text
+                                        numberOfLines={1}
+                                        style={styles.Upper_text}>
                                         upper
                                     </Text>
 
                                     {/* middle */}
-                                    <Text 
-                                    numberOfLines={1}
-                                    style={styles.middle_text}>
+                                    <Text
+                                        numberOfLines={1}
+                                        style={styles.middle_text}>
                                         {date()}
                                     </Text>
 
                                     {/* lower */}
-                                    <Text 
-                                    numberOfLines={2}
-                                    style={styles.lower_text}>
-                                        lower assasasa sa dasd asd asd s d sad sad sad sa d sd s ds ad sa dsa ds ad s ds d sad sa das 
+                                    <Text
+                                        numberOfLines={2}
+                                        style={styles.lower_text}>
+                                        lower assasasa sa dasd asd asd s d sad sad sad sa d sd s ds ad sa dsa ds ad s ds d sad sa das
                                     </Text>
 
                                 </View>
@@ -154,6 +155,11 @@ const Itenary = ({ navigation }) => {
                     />
                 </View>
             </View>
+            {/* done button */}
+            <View style={styles.done_container}>
+                <Custom_button text={'Done'} onPress={()=>navigation.goBack()}/>
+
+            </View>
 
 
         </SafeAreaView>
@@ -174,8 +180,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         overflow: 'hidden',
         justifyContent: 'space-between',
-     
-    elevation: 3,  // For Android
+
+        elevation: 3,  // For Android
     },
     Image: {
         height: 90,
@@ -224,6 +230,20 @@ const styles = StyleSheet.create({
         borderRadius: 6,
         backgroundColor: Colors.Text_blue_color,
     },
+
+    done_container: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        margin: 10,
+        elevation: 5,  // For Android
+        shadowColor: '#000',  // For iOS
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+    },
+    done_button: {},
 })
 
 export default Itenary
