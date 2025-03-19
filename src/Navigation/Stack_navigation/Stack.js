@@ -17,6 +17,7 @@ import About from "../../Screens/About.js"
 import Contacts from "../../Screens/Contacts.js"
 import Language from "../../Screens/Auth/Language.js"
 import Itenary from "../../Screens/Trips/Itenary.trips.js"
+import Itenary_display from "../../Screens/display/itenary.screen.js"
 
 
 const stack = createNativeStackNavigator()
@@ -48,6 +49,7 @@ const Stack_navigation = () => {
 
         <stack.Screen options={{ headerShown: false, }} name='search' component={Search} />
         <stack.Screen options={{ headerShown: false, }} name='trips' component={Trips} />
+        <stack.Screen options={{ headerShown: false, }} name='itenary_display' component={Itenary_display} />
         <stack.Screen options={{ headerShown: false, }} name='favourite' component={Favourite} />
         <stack.Screen options={{ headerShown: false, }} name='profile' component={Profile} />
         <stack.Screen options={{ headerShown: false, }} name='itenary' component={Itenary} />

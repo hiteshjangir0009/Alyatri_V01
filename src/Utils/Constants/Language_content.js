@@ -127,6 +127,7 @@ export const HeaderNav_lang = {
         ch: '搜索',
         ar: 'بحث',
     },
+
     Trips: {
         page_name: {
             en: 'Trips',
@@ -151,53 +152,113 @@ export const HeaderNav_lang = {
             "hi": "अपना यात्रा कार्यक्रम बनाएँ",
             "ch": "创建您的行程",
             "ar": "أنشئ خط سير رحلتك"
+        },
+        Modal: {
+            Header: {
+                en: 'Make your travel itinerary',
+                hi: 'अपना यात्रा कार्यक्रम बनाएं',
+                ch: '制定您的旅行行程',
+                ar: 'قم بتحديد خط سير رحلتك'
+            },
+            Trip_name: {
+                heading: {
+                    en: 'Name your trip',
+                    hi: 'अपनी यात्रा का नाम दें',
+                    ch: '命名您的旅行',
+                    ar: 'قم بتسمية رحلتك',
+                },
+                placeholder: {
+                    en: 'e.g. Dubai trip',
+                    hi: 'उदाहरण: दुबई यात्रा',
+                    ch: '例如：迪拜之旅',
+                    ar: 'على سبيل المثال: رحلة دبي',
+                }
+            },
+            Trip_date: {
+                heading: {
+                    en: 'Select date',
+                    hi: 'अपनी यात्रा की तारीख चुनें',
+                    ch: '选择您的旅行日期',
+                    ar: 'حدد تاريخ رحلتك',
+                },
+                From: {
+                    en: 'From',
+                    hi: 'से',
+                    ch: '从',
+                    ar: 'من',
+                },
+                To: {
+                    en: 'To',
+                    hi: 'को',
+                    ch: '到',
+                    ar: 'إلى',
+                },
+            },
+            Button: {
+                en: 'Select places & events',
+                hi: 'स्थान और घटनाओं का चयन करें',
+                ch: '选择地点和活动',
+                ar: 'حدد الأماكن والفعاليات',
+            }
         }
+
     },
+
     Favourite: {
         en: 'Favourites',
         hi: 'पसंदीदा',
         ch: '收藏',
         ar: 'المفضلة',
     },
+
     Profile: {
-        en: 'Profile',
-        hi: 'प्रोफ़ाइल',
-        ch: '资料',
-        ar: 'الملف الشخصي',
+        heading: {
+            en: 'Profile',
+            hi: 'प्रोफ़ाइल',
+            ch: '资料',
+            ar: 'الملف الشخصي',
+        },
+        Name: {
+            en: 'Name',
+            hi: 'नाम',
+            ch: '名字',
+            ar: 'الاسم',
+        },
+        LastName: {
+            en: 'Last Name',
+            hi: 'उपनाम',
+            ch: '姓氏',
+            ar: 'الكنية',
+        },
+        Email: {
+            en: 'Email',
+            hi: 'ईमेल',
+            ch: '电子邮件',
+            ar: 'البريد الإلكتروني',
+        },
+        City: {
+            en: 'City',
+            hi: 'शहर',
+            ch: '城市',
+            ar: 'مدينة',
+        },
+        SaveChanges: {
+            en: 'Save Changes',
+            hi: 'परिवर्तनों को सहेजें',
+            ch: '保存更改',
+            ar: 'حفظ التغييرات',
+        },
     },
 
-    Name: {
-        en: 'Name',
-        hi: 'नाम',
-        ch: '名字',
-        ar: 'الاسم',
-    },
-    LastName: {
-        en: 'Last Name',
-        hi: 'उपनाम',
-        ch: '姓氏',
-        ar: 'الكنية',
-    },
-    Email: {
-        en: 'Email',
-        hi: 'ईमेल',
-        ch: '电子邮件',
-        ar: 'البريد الإلكتروني',
-    },
-    Mobile: {
-        en: 'Mobile',
-        hi: 'मोबाइल',
-        ch: '手机',
-        ar: 'الهاتف المحمول',
-    },
-
-    SaveChanges: {
-        en: 'Save Changes',
-        hi: 'परिवर्तनों को सहेजें',
-        ch: '保存更改',
-        ar: 'حفظ التغييرات',
-    },
 };
+export const itinerary_lang = {
+    Heading: {
+        en: 'Itinerary',
+        hi: 'यात्रा कार्यक्रम',
+        ch: '行程',
+        ar: 'جدول الرحلة',
+    }
+}
 
 
 export const Settings_lang = {

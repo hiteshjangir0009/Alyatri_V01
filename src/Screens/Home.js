@@ -17,6 +17,7 @@ import { Sub_Category_layout } from '../Utils/SubCategory'
 import { NoData_text } from '../Utils/NoData_text'
 import { Custom_Header } from '../Utils/Headers'
 import { Home_sliders } from '../Utils/Home_sliders'
+import { Logs } from '../Utils/Constants/constants'
 
 
 export const month_data = [
@@ -34,7 +35,7 @@ export const month_data = [
   { id: '12', month: 'Dec' },
 ];
 
-const { width, height } = Dimensions.get('window'); // Screen dimensions
+
 
 
 const Home = ({ navigation }) => {
@@ -92,6 +93,8 @@ const Home = ({ navigation }) => {
       if (response.success !== true) {
         return logout()
       }
+
+      Logs('Home', response.data.businessCategories)
 
       console.log("response ==>>", response.data.businessCategories);
 
@@ -231,7 +234,7 @@ const Home = ({ navigation }) => {
           ) : (
 
             <ScrollView
-            showsVerticalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
             >
 
               {/* categories */}
@@ -305,31 +308,40 @@ const Home = ({ navigation }) => {
 
 
                 {/* display Banner Offer */}
-                <FlatList
-                  ref={flatListRef}
-                  data={Banner}
-                  contentContainerStyle={styles.flatListContainer}
-                  horizontal={true}
-                  pagingEnabled={true}
-                  showsHorizontalScrollIndicator={false}
-                  keyExtractor={(item) => item._id}
-                  renderItem={({ item }) => (
-                    <View style={styles.display_image_container}>
-                      <TouchableWithoutFeedback onPress={() => console.log("Banner clicked")}>
-                        <FastImage
-                          style={styles.display_image}
-                          source={{ uri: `${Img_url}${item.image}` }}
-                        />
-                      </TouchableWithoutFeedback>
+                {
+                  Banner.length == 0 ? (
+                    <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: 10 }}>
+                      <NoData_text />
                     </View>
-                  )}
-                  onScrollToIndexFailed={(info) => {
-                    const wait = new Promise((resolve) => setTimeout(resolve, 500));
-                    wait.then(() => {
-                      flatListRef.current?.scrollToIndex({ index: info.index, animated: true });
-                    });
-                  }}
-                />
+                  ) : (
+                    <FlatList
+                      ref={flatListRef}
+                      data={Banner}
+                      contentContainerStyle={styles.flatListContainer}
+                      horizontal={true}
+                      pagingEnabled={true}
+                      showsHorizontalScrollIndicator={false}
+                      keyExtractor={(item) => item._id}
+                      renderItem={({ item }) => (
+                        <View style={styles.display_image_container}>
+                          <TouchableWithoutFeedback onPress={() => console.log("Banner clicked")}>
+                            <FastImage
+                              style={styles.display_image}
+                              source={{ uri: `${Img_url}${item.image}` }}
+                            />
+                          </TouchableWithoutFeedback>
+                        </View>
+                      )}
+                      onScrollToIndexFailed={(info) => {
+                        const wait = new Promise((resolve) => setTimeout(resolve, 500));
+                        wait.then(() => {
+                          flatListRef.current?.scrollToIndex({ index: info.index, animated: true });
+                        });
+                      }}
+                    />
+                  )
+                }
+
 
 
 
@@ -337,15 +349,15 @@ const Home = ({ navigation }) => {
                 <View>
 
                   {/* trending now */}
-                  <Home_sliders Type={'TrendingNow'} nav={navigation} title={'Trending now'} Data={Trending} />
+                  <Home_sliders Type={'TrendingNow'} nav={navigation} title={Home_lang.TrendingNow[lang]} Data={Trending} />
 
 
                   {/* experience now */}
-                  <Home_sliders Type={'Experience'} nav={navigation} title={'Experience'} Data={Experience} />
+                  <Home_sliders Type={'Experience'} nav={navigation} title={Home_lang.Experience[lang]} Data={Experience} />
 
 
                   {/* whats on */}
-                  <Home_sliders Type={'WhatsOn'} nav={navigation} title={`What's on`} Data={WhatsOn} />
+                  <Home_sliders Type={'WhatsOn'} nav={navigation} title={Home_lang.WhatsOn[lang]} Data={WhatsOn} />
 
                 </View>
 

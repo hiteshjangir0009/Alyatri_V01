@@ -10,15 +10,19 @@ import Custom_button from '../../Utils/Buttons'
 import { useSelector } from 'react-redux'
 import { HeaderNav_lang, Home_lang } from '../../Utils/Constants/Language_content'
 import { useRoute } from '@react-navigation/native'
+import { API_url, postApi } from '../../Utils/Constants/API_config'
+import { ALERT_TYPE, AlertNotificationRoot, Dialog, Toast } from 'react-native-alert-notification'
+import { Alert_modal } from '../../Utils/Alert_modal'
+
 
 const Profile = ({ navigation }) => {
-  const select_text = ['My Trips', 'Guides']
-  const [selected, setselected] = useState('')
   const [Data, setData] = useState([])
-  const [name, setname] = useState('')
-  const [last_name, setlast_name] = useState('')
-  const [email, setemail] = useState('')
+  const [Name, setName] = useState('')
+  const [Last_name, setLast_name] = useState('')
+  const [City, setCity] = useState('')
+  const [Email, setEmail] = useState('')
   const [mobile, setmobile] = useState('')
+  const [Visible, setVisible] = useState(false)
 
   const route = useRoute()
   const { payLoad } = route.params
@@ -44,42 +48,56 @@ const Profile = ({ navigation }) => {
     return () => backHandler.remove();
   }, [])
 
-  useEffect(() => {
-    fetch_data()
-  }, [navigation])
-
   const Mobile = useSelector(state => state.Mobile_Reducer)
   const Token = useSelector(state => state.Token_Reducer)
   const lang = useSelector((state) => state.Language_Reducer)
 
-  console.log("Mobile ==>>", Mobile);
+  const fetch_data = async () => {
 
-  const fetch_data = async (item = 'My Trips') => {
 
-    setmobile(Mobile[0])
-    setselected(item)
+    const raw = JSON.stringify({
+      name: `${Name} ${Last_name}`,
+      email: Email,
+      city: City,
+    });
 
-    console.log("data ==>>", selected);
+    try {
+      if (Name == '' || Last_name == '' || City == '' || Email == '') {
+        setVisible(true)
+        return
+      }
+      const response = await postApi(API_url.Profile_update, raw, Token)
+      if (response.success == true) {
+        setName('')
+        setLast_name('')
+        setCity('')
+        setEmail('')
+      }
 
-    if (item == 'My Trips') {
-      setData([1, 1, 1, 1])
-    } else {
-      setData([1, 1])
+
+      console.log("response ==>>", response);
+
+    } catch (error) {
+      console.log("profile_update_error ==>>", error);
+
     }
 
-  }
 
-  console.log("mobile ==>>", mobile);
+
+
+
+  }
 
 
 
   return (
+
     <SafeAreaView>
 
       {/* header */}
       <View style={{}}>
         <Custom_Header nav={navigation} activity={'profile'} CustomNav={payLoad == 'setting' ? true : false} />
-        <Page_name name={HeaderNav_lang.Profile[lang]} />
+        <Page_name name={HeaderNav_lang.Profile.heading[lang]} />
       </View>
 
       <KeyboardAvoidingView
@@ -90,67 +108,80 @@ const Profile = ({ navigation }) => {
         <ScrollView automaticallyAdjustKeyboardInsets={true} keyboardShouldPersistTaps="handled">
 
           {/* container */}
-          <View style={styles.container}>
+          <AlertNotificationRoot>
 
-            {/* name */}
-            <View style={styles.data_container}>
-              <Text style={styles.text}>{HeaderNav_lang.Name[lang]}</Text>
-              <TextInput
-                style={styles.input_text}
-                placeholder={HeaderNav_lang.Name[lang]}
-                placeholderTextColor={Colors.Text_grey_color}
-                value={name}
-                onChangeText={(text) => setname(text)}
-              />
+            <View style={styles.container}>
+
+              {/* name */}
+              <View style={styles.data_container}>
+                <Text style={styles.text}>{HeaderNav_lang.Profile.Name[lang]}</Text>
+                <TextInput
+                  style={styles.input_text}
+                  placeholder={HeaderNav_lang.Profile.Name[lang]}
+                  placeholderTextColor={Colors.Text_grey_color}
+                  value={Name}
+                  onChangeText={(text) => setName(text)}
+                />
+              </View>
+
+
+              {/* last */}
+              <View style={styles.data_container}>
+                <Text style={styles.text}>{HeaderNav_lang.Profile.LastName[lang]}</Text>
+                <TextInput
+                  style={styles.input_text}
+                  placeholder={HeaderNav_lang.Profile.LastName[lang]}
+                  placeholderTextColor={Colors.Text_grey_color}
+                  value={Last_name}
+                  onChangeText={(text) => setLast_name(text)}
+                />
+              </View>
+
+
+              {/* email */}
+              <View style={styles.data_container}>
+                <Text style={styles.text}>{HeaderNav_lang.Profile.Email[lang]}</Text>
+                <TextInput
+                  style={styles.input_text}
+                  placeholder='xyz@abc.com'
+                  placeholderTextColor={Colors.Text_grey_color}
+                  value={Email}
+                  onChangeText={(text) => setEmail(text)}
+                />
+              </View>
+
+
+              {/* City */}
+              <View style={styles.data_container}>
+                <Text style={styles.text}>{HeaderNav_lang.Profile.City[lang]}</Text>
+                <TextInput
+                  style={styles.input_text}
+                  placeholder='e.g. Dubai'
+                  placeholderTextColor={Colors.Text_grey_color}
+                  value={City}
+                  onChangeText={(text) => setCity(text)}
+                />
+              </View>
+
+
+              <View style={{ marginTop: 40 }}>
+                <Custom_button text={HeaderNav_lang.Profile.SaveChanges[lang]}
+                  onPress={() => {
+                    fetch_data()
+                  }}
+                />
+              </View>
             </View>
+          </AlertNotificationRoot>
 
-
-            {/* last */}
-            <View style={styles.data_container}>
-              <Text style={styles.text}>{HeaderNav_lang.LastName[lang]}</Text>
-              <TextInput
-                style={styles.input_text}
-                placeholder={HeaderNav_lang.LastName[lang]}
-                placeholderTextColor={Colors.Text_grey_color}
-                value={last_name}
-                onChangeText={(text) => setlast_name(text)}
-              />
-            </View>
-
-
-            {/* email */}
-            <View style={styles.data_container}>
-              <Text style={styles.text}>{HeaderNav_lang.Email[lang]}</Text>
-              <TextInput
-                style={styles.input_text}
-                placeholder='xyz@abc.com'
-                placeholderTextColor={Colors.Text_grey_color}
-                value={email}
-                onChangeText={(text) => setemail(text)}
-              />
-            </View>
-
-
-            {/* mobile */}
-            <View style={styles.data_container}>
-              <Text style={styles.text}>{HeaderNav_lang.Mobile[lang]}</Text>
-              <TextInput
-                style={styles.input_text}
-                placeholder='121xxxxxxx'
-                placeholderTextColor={Colors.Text_grey_color}
-                value={mobile}
-                onChangeText={(text) => setmobile(text)}
-              />
-            </View>
-
-
-            <View style={{ marginTop: 40 }}>
-              <Custom_button text={HeaderNav_lang.SaveChanges[lang]} onPress={() => console.log('saved changes')} />
-            </View>
-          </View>
         </ScrollView>
       </KeyboardAvoidingView>
+
+      {/* alert */}
+      <Alert_modal Message={"All fields are Required"} Visible={Visible} onClose={() => setVisible(false)} />
+
     </SafeAreaView>
+
   )
 }
 

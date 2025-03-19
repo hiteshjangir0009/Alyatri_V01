@@ -11,6 +11,7 @@ import { Explore_lang } from '../Utils/Constants/Language_content'
 import { useSelector } from 'react-redux'
 import FastImage from 'react-native-fast-image'
 import { API_url, getApi, Img_url } from '../Utils/Constants/API_config'
+import { NoData_text } from '../Utils/NoData_text'
 
 const { width, height } = Dimensions.get('window'); // Screen dimensions
 

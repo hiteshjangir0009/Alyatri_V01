@@ -44,7 +44,7 @@ export const Home_sliders = ({ title, Data = [], nav, Type }) => {
                                     source={Images.Location_icon}
                                 />
                                 <Text numberOfLines={1} style={[styles.content_display_text_up, { marginHorizontal: 10, fontSize: responsiveFontSize(1.9) }]}>
-                                    {item.title[lang]}
+                                    {item?.details?.name}
                                 </Text>
                             </View>
 
@@ -58,7 +58,8 @@ export const Home_sliders = ({ title, Data = [], nav, Type }) => {
                                     source={Images.Calender_icon}
                                 />
                                 <Text numberOfLines={1} style={[styles.experience_display_text_middle, { marginHorizontal: 10, fontSize: responsiveFontSize(1.5) }]}>
-                                    {date(item)}
+                                    {/* {date(item)} */}
+                                    date
                                 </Text>
                             </View>
                         </>
@@ -79,7 +80,7 @@ export const Home_sliders = ({ title, Data = [], nav, Type }) => {
                 <Text
                     numberOfLines={2}
                     style={styles.content_display_text_down}>
-                    loremdf sfd frfrc dsdsdsdsdsd sdsdsdsdsdsdsdrtrtr tr tr trt rt r tr trsssdsdsd
+                    {item.details?.description}
                 </Text>
             </>
         )
@@ -123,7 +124,8 @@ export const Home_sliders = ({ title, Data = [], nav, Type }) => {
                                     style={styles.content_display}>
                                     <FastImage
                                         style={styles.content_display_image}
-                                        source={{ uri: `${Img_url}${item.image}` }} />
+                                        // source={{ uri: `${Img_url}${item.image}` }} />
+                                        source={{ uri: item?.photos?.images?.medium?.url}||Images.Background} />
 
 
                                     <View>

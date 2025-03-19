@@ -9,6 +9,7 @@ import { Images } from '../../Utils/Constants/Images'
 import { useSelector } from 'react-redux'
 import { HeaderNav_lang } from '../../Utils/Constants/Language_content'
 import { useRoute } from '@react-navigation/native'
+import { API_url, postApi } from '../../Utils/Constants/API_config'
 
 const Favourite = ({ navigation }) => {
     const select_text = ['My Trips', 'Guides']
@@ -18,6 +19,8 @@ const Favourite = ({ navigation }) => {
     const route = useRoute()
     const { payLoad } = route.params
     const lang = useSelector((state) => state.Language_Reducer)
+    const Token = useSelector(state => state.Token_Reducer)
+
 
     useEffect(() => {
         const backAction = () => {
@@ -40,6 +43,17 @@ const Favourite = ({ navigation }) => {
 
     const fetch_data = async () => {
 
+        const raw = JSON.stringify({
+            "itemId": "67a998b9d6ed48ea34582bc9",
+            "type": "evnet"
+          });
+
+        try {
+            const response = await postApi(API_url.Favourite, raw, Token);
+        } catch (error) {
+            console.log('error in fetch data', error)
+
+        }
     }
 
 
@@ -58,7 +72,7 @@ const Favourite = ({ navigation }) => {
 
                 <FlatList
 
-                    data={Data}
+                    data={[1]}
                     renderItem={({ item }) => (
                         <View style={styles.trip_box}>
                             <Text numberOfLines={2} style={styles.trip_text_up}>

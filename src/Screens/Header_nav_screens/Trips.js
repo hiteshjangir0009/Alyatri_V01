@@ -1,7 +1,7 @@
 import { BackHandler, Dimensions, FlatList, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { responsiveFontSize, responsiveScreenHeight } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth } from 'react-native-responsive-dimensions'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Font_poppins } from '../../Utils/Constants/fonts'
 import { Custom_Header, Page_name } from '../../Utils/Headers'
@@ -12,6 +12,12 @@ import Custom_button from '../../Utils/Buttons'
 import Modal from 'react-native-modal'
 import Calendar from 'react-native-calendar-range-picker';
 import { useRoute } from '@react-navigation/native'
+import { Alert_modal } from '../../Utils/Alert_modal'
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry'
+import { API_url, getApi } from '../../Utils/Constants/API_config'
+import { month_data } from '../Home'
+import { Loader } from '../../Utils/Loader'
+import FastImage from 'react-native-fast-image'
 
 
 const Trips = ({ navigation }) => {
@@ -24,9 +30,12 @@ const Trips = ({ navigation }) => {
     const [Data, setData] = useState([])
     const [Modal_state, setModal_state] = useState(false)
     const [Calender_modal, setCalender_modal] = useState(false)
+    const [Visible, setVisible] = useState(false)
+    const [Loading, setLoading] = useState(true)
 
     const route = useRoute()
     const { payLoad } = route.params
+
 
     // backbutton handle
     useEffect(() => {
@@ -46,7 +55,7 @@ const Trips = ({ navigation }) => {
 
 
     useEffect(() => {
-        fetch_data()
+        fetch_data(HeaderNav_lang.Trips.MyTrips[lang])
         setdate()
     }, [])
 
@@ -55,8 +64,8 @@ const Trips = ({ navigation }) => {
         const twoDaysLater = addDaysToDate(today, 2);
         setStart_date(today);
         setEnd_date(twoDaysLater);
-        console.log("today ==>>", today);
-        console.log("today +2 ==>>", twoDaysLater);
+        // console.log("today ==>>", today);
+        // console.log("today +2 ==>>", twoDaysLater);
 
     }
 
@@ -70,113 +79,54 @@ const Trips = ({ navigation }) => {
     };
 
     const lang = useSelector((state) => state.Language_Reducer)
+    const Token = useSelector((state) => state.Token_Reducer)
 
 
-    const fetch_data = async (item = HeaderNav_lang.MyTrips[lang]) => {
-        // setselected(item)xs
+    const fetch_data = async (item) => {
+        setselected(item)
+        // console.log("selected ==>>", item);
 
-        console.log("data ==>>", selected);
+        if (item == HeaderNav_lang.Trips.MyTrips[lang]) {
+            try {
+                const response = await getApi(API_url.Get_itinerary, Token)
+                console.log("response ==>>", response);
+                setData(response.data)
+                setTimeout(() => {
+                    setLoading(false)
 
-        if (item == HeaderNav_lang.MyTrips[lang]) {
-            setData([])
+                }, 600)
+
+            } catch (error) {
+                console.log("trip_itenary_error ==>>", error)
+            }
         } else {
             setData([])
+            setLoading(false)
         }
 
     }
 
-    // modal content
-    const ModalContent = React.memo(({ onClose }) => (
-        <View style={styles.modal_container}>
-            {/*Header*/}
-            <View>
-                <Text style={styles.Modal_header_text}>
-                    Make your travel itinerary
-                </Text>
-            </View>
 
-            {/* form data */}
-            <View style={styles.form_container}>
-                {/* name */}
-                <View>
-                    <Text style={styles.form_header_text}>
-                        Name your trip
-                    </Text>
-                    <TextInput
-                        placeholder='e.g. Dubai trip'
-                        placeholderTextColor={Colors.Text_grey_color}
-                        style={styles.form_input}
-                        value={TripName}
-                        onChangeText={(val) => setTripName(val)}
-                    />
-                </View>
+    // date formater
+    const date = (item) => {
+        // console.log(item)
 
+        const S_item = item.startDate
+        const E_item = item.endDate
 
-                {/* select date */}
-                <View style={styles.date_container}>
+        const S_year = S_item.slice(0, 4)
+        const E_year = E_item.slice(0, 4)
+        const S_month = S_item.slice(5, 7)
+        const E_month = E_item.slice(5, 7)
+        const S_date = S_item.slice(8, 10)
+        const E_date = E_item.slice(8, 10)
 
-                    <Text style={styles.form_header_text}>
-                        Select Date
-                    </Text>
-                    <View
-                        style={{
-                            flexDirection: 'row',
-                            justifyContent: "space-around",
-                            marginVertical: 10
-                        }}>
-                        {/* start */}
-                        <View>
-                            <Text style={{
-                                alignSelf: 'flex-start',
-                                color: Colors.Text_base_color,
-                                fontFamily: Font_poppins.Medium_font,
-                                fontSize: responsiveFontSize(1.5),
-                                marginHorizontal: 10
+        const S_month_name = month_data.find((e) => e.id === S_month)
+        const E_month_name = month_data.find((e) => e.id === E_month)
 
-                            }}>
-                                From
-                            </Text>
-                            <Text
-                                onPress={() => setCalender_modal(true)}
-                                style={styles.date_text}>
-                                {Start_date.split('-').reverse().join('-')}
-                            </Text>
-                        </View>
+        return `${S_date} ${S_month_name.month} ${S_year}  to  ${E_date} ${E_month_name.month} ${E_year}`
+    }
 
-
-                        {/* end */}
-                        <View>
-                            <Text style={{
-                                alignSelf: 'flex-start',
-                                color: Colors.Text_base_color,
-                                fontFamily: Font_poppins.Medium_font,
-                                fontSize: responsiveFontSize(1.5),
-                                marginHorizontal: 10
-                            }}>
-                                To
-                            </Text>
-                            <Text style={styles.date_text}>
-                                {End_date.split('-').reverse().join('-')}
-                            </Text>
-                        </View>
-                    </View>
-
-
-                </View>
-
-                {/* choose trip */}
-                <View style={styles.button_container}>
-                    <Custom_button text={'Select places & events'} onPress={() => {
-                        setModal_state(false)
-                        setTimeout(() => {
-                            Navigation('itenary')
-                        }, 350)
-
-                    }} />
-                </View>
-            </View>
-        </View>
-    ));
 
     if (Calender_modal == true) {
         return (
@@ -202,7 +152,7 @@ const Trips = ({ navigation }) => {
 
     return (
         <>
-            <SafeAreaView style={{flex:1}}>
+            <SafeAreaView style={{ flex: 1 }}>
 
                 {/* header */}
                 <View >
@@ -216,8 +166,8 @@ const Trips = ({ navigation }) => {
                     <TouchableOpacity
                         // key={index}
                         onPress={() => {
-                            // setselected(item)
-                            fetch_data()
+                            setLoading(true)
+                            fetch_data(HeaderNav_lang.Trips.MyTrips[lang])
 
                         }}
                         style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.Trips.MyTrips[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
@@ -228,8 +178,8 @@ const Trips = ({ navigation }) => {
                     <TouchableOpacity
                         // key={index}
                         onPress={() => {
-                            // setselected(item)
-                            fetch_data()
+                            setLoading(true)
+                            fetch_data(HeaderNav_lang.Trips.Guides[lang])
 
                         }}
                         style={[styles.DBselector_text, { backgroundColor: selected == HeaderNav_lang.Trips.Guides[lang] ? Colors.button_background_color : Colors.Primary_color }]}>
@@ -239,40 +189,104 @@ const Trips = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
 
+                {
+                    Loading ? (
+                        <View
+                            style={{
+                                flex: 1,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                backgroundColor: Colors.Primary_color
+                            }}>
+                            <Loader />
+                        </View>
+                    ) : (
+                        // {/* container */}
+                        <View style={styles.container}>
+                            {
+                                selected == HeaderNav_lang.Trips.MyTrips[lang] ? (
+                                    <FlatList
 
-                {/* container */}
-                <View style={styles.container}>
+                                        data={Data}
+                                        renderItem={({ item }) => (
+                                            <TouchableOpacity
+                                                onPress={() => { Navigation('itenary_display') }}
+                                                style={styles.trip_box}>
+                                                <Text numberOfLines={2} style={styles.trip_text_up}>
+                                                    {item.tripName}
+                                                </Text>
+                                                <View style={{ flexDirection: 'row' }}>
+                                                    <Image
+                                                        style={{ width: 17, height: 17 }}
+                                                        source={Images.Calender_icon} />
+                                                    <Text style={styles.trip_text_down}>
+                                                        {date(item)}
+                                                    </Text>
+                                                </View>
 
 
-                    <FlatList
+                                            </TouchableOpacity>
+                                        )}
+                                        ListFooterComponent={<View style={{ height: responsiveScreenHeight(10) }} />}
 
-                        data={Data}
-                        renderItem={({ item }) => (
-                            <View style={styles.trip_box}>
-                                <Text numberOfLines={2} style={styles.trip_text_up}>
-                                    Trip
-                                </Text>
-                                <View style={styles.date_container}>
-                                    <Image
-                                        style={{ width: 17, height: 17 }}
-                                        source={Images.Calender_icon} />
-                                    <Text style={styles.trip_text_down}>
-                                        30-12-2021
-                                    </Text>
-                                </View>
+                                    />
+                                ) : (
+                                    <FlatList
+                                        data={[1, 1, 1, 1]}
+                                        renderItem={({ item }) => (
+                                            <TouchableOpacity
+                                                onPress={() => { Navigation('itenary_display') }}
+                                                style={[styles.trip_box, { flexDirection:'row' }]}>
+
+                                                <FastImage
+                                                    style={{
+                                                        height: 80,
+                                                        width: 80,
+                                                        borderRadius:50,
+                                                        overflow:'hidden',
+                                                        alignSelf:'center'
+                                                    }}
+                                                    source={Images.Background} />
+
+                                                <View style={{marginHorizontal:10}}>
+
+                                                    <Text numberOfLines={1} style={styles.trip_text_up}>
+                                                        name
+                                                    </Text>
+                                                    <View style={{}}>
+
+                                                        <Text 
+                                                        numberOfLines={1}
+                                                        style={[styles.trip_text_down, { marginHorizontal: 0 }]}>
+                                                            India
+                                                        </Text>
+                                                        <Text
+                                                        numberOfLines={2}
+                                                        style={[styles.trip_text_down, { marginHorizontal: 0 ,width:responsiveScreenWidth(60)}]}>
+                                                            experience -- - -- --  -- - --- - - - - --- -- - -- - -- - -- - -- - - -- 
+                                                        </Text>
+                                                    </View>
+                                                </View>
 
 
+
+                                            </TouchableOpacity>
+                                        )}
+                                    />
+                                )
+                            }
+
+
+
+                            {/* // create Itenary */}
+                            <View style={styles.I_create_container}>
+                                <Custom_button text={HeaderNav_lang.Trips.CreateYourItinerary[lang]} onPress={() => setModal_state(true)} />
                             </View>
-                        )}
-                        ListFooterComponent={<View style={{ height: responsiveScreenHeight(25) }} />}
+                        </View>
+                    )
+                }
 
-                    />
 
-                    {/* // create Itenary */}
-                    <View style={styles.I_create_container}>
-                        <Custom_button text={HeaderNav_lang.Trips.CreateYourItinerary[lang]} onPress={() => setModal_state(true)} />
-                    </View>
-                </View>
 
 
 
@@ -291,8 +305,117 @@ const Trips = ({ navigation }) => {
                     onBackButtonPress={() => setModal_state(false)}
                     onBackdropPress={() => setModal_state(false)}
                 >
-                    <ModalContent onClose={() => setModal_state(false)} />
+                    <View style={styles.modal_container}>
+                        {/*Header*/}
+                        <View>
+                            <Text style={styles.Modal_header_text}>
+                                {HeaderNav_lang.Trips.Modal.Header[lang]}
+                            </Text>
+                        </View>
+
+                        {/* form data */}
+                        <View style={styles.form_container}>
+                            {/* name */}
+                            <View>
+                                <Text style={styles.form_header_text}>
+                                    {HeaderNav_lang.Trips.Modal.Trip_name.heading[lang]}
+                                </Text>
+                                <TextInput
+                                    placeholder={HeaderNav_lang.Trips.Modal.Trip_name.placeholder[lang]}
+                                    placeholderTextColor={Colors.Text_grey_color}
+                                    style={styles.form_input}
+                                    value={TripName}
+                                    keyboardAppearance='dark'
+                                    keyboardType='default'
+
+                                    onChangeText={(val) => {
+
+                                        setTripName(val)
+                                    }}
+                                />
+                            </View>
+
+
+                            {/* select date */}
+                            <View style={styles.date_container}>
+
+                                <Text style={styles.form_header_text}>
+                                    {HeaderNav_lang.Trips.Modal.Trip_date.heading[lang]}
+                                </Text>
+                                <View
+                                    style={{
+                                        flexDirection: 'row',
+                                        justifyContent: "space-around",
+                                        marginVertical: 10
+                                    }}>
+                                    {/* start */}
+                                    <View>
+                                        <Text style={{
+                                            alignSelf: 'flex-start',
+                                            color: Colors.Text_base_color,
+                                            fontFamily: Font_poppins.Medium_font,
+                                            fontSize: responsiveFontSize(1.5),
+                                            marginHorizontal: 10
+
+                                        }}>
+                                            {HeaderNav_lang.Trips.Modal.Trip_date.From[lang]}
+                                        </Text>
+                                        <Text
+                                            onPress={() => setCalender_modal(true)}
+                                            style={styles.date_text}>
+                                            {Start_date.split('-').reverse().join('-')}
+                                        </Text>
+                                    </View>
+
+
+                                    {/* end */}
+                                    <View>
+                                        <Text style={{
+                                            alignSelf: 'flex-start',
+                                            color: Colors.Text_base_color,
+                                            fontFamily: Font_poppins.Medium_font,
+                                            fontSize: responsiveFontSize(1.5),
+                                            marginHorizontal: 10
+                                        }}>
+                                            {HeaderNav_lang.Trips.Modal.Trip_date.To[lang]}
+                                        </Text>
+                                        <Text style={styles.date_text}>
+                                            {End_date.split('-').reverse().join('-')}
+                                        </Text>
+                                    </View>
+                                </View>
+
+
+                            </View>
+
+                            {/* choose trip */}
+                            <View style={styles.button_container}>
+                                <Custom_button text={HeaderNav_lang.Trips.Modal.Button[lang]} onPress={() => {
+                                    setTimeout(() => {
+                                        if (TripName !== '') {
+
+                                            Navigation('itenary',
+                                                {
+                                                    start_date: Start_date, end_date: End_date, trip_name: TripName
+                                                }
+                                            )
+                                            setTripName('')
+                                            setModal_state(false)
+
+                                        } else {
+                                            // setModal_state(false)
+                                            setVisible(true)
+                                        }
+
+                                    }, 350)
+
+                                }} />
+                            </View>
+                        </View>
+                    </View>
                 </Modal>
+                <Alert_modal Message={'All fields are required'} onClose={() => setVisible(false)} Visible={Visible} />
+
             </View>
         </>
     )
@@ -301,11 +424,11 @@ const Trips = ({ navigation }) => {
 export default Trips
 
 const styles = StyleSheet.create({
- 
+
 
     container: {
-        flex:1,
-        backgroundColor:Colors.Primary_color,
+        flex: 1,
+        backgroundColor: Colors.Primary_color,
     },
 
     trip_box: {
@@ -324,9 +447,15 @@ const styles = StyleSheet.create({
     trip_text_down: {
         color: Colors.Text_base_color,
         fontSize: responsiveFontSize(1.5),
-        fontFamily: Font_poppins.Regular_font,
+        fontFamily: Font_poppins.Medium_font,
         marginHorizontal: 10
     },
+    // guide_text_down: {
+    //     color: Colors.Text_base_color,
+    //     fontSize: responsiveFontSize(1.5),
+    //     fontFamily: Font_poppins.Medium_font,
+    //     marginHorizontal: 10
+    // },
     date_container: {
         flexDirection: 'row',
         // alignItems:'center'
@@ -354,7 +483,7 @@ const styles = StyleSheet.create({
         bottom: 0,
         right: 0,
         left: 0,
-        margin:10
+        margin: 10
     },
     I_create_text: {
 

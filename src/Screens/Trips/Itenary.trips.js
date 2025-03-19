@@ -1,15 +1,21 @@
 import { Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Custom_Header, Page_name } from '../../Utils/Headers'
 import { useSelector } from 'react-redux'
 import { Sub_Category_layout } from '../../Utils/SubCategory'
 import { Colors } from '../../Utils/Constants/Colors'
 import { Images } from '../../Utils/Constants/Images'
-import { responsiveFontSize, responsiveScreenWidth, responsiveWidth } from 'react-native-responsive-dimensions'
+import { responsiveFontSize, responsiveScreenHeight, responsiveScreenWidth, responsiveWidth } from 'react-native-responsive-dimensions'
 import { Font_poppins } from '../../Utils/Constants/fonts'
 import { month_data } from '../Home'
 import Custom_button from '../../Utils/Buttons'
+import { itinerary_lang } from '../../Utils/Constants/Language_content'
+import { useRoute } from '@react-navigation/native'
+import { API_url, getApi, postApi } from '../../Utils/Constants/API_config'
+import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry'
+import { Loader } from '../../Utils/Loader'
+import FastImage from 'react-native-fast-image'
 
 const data = [
     {
@@ -35,21 +41,95 @@ const data = [
 const Itenary = ({ navigation }) => {
     const Navigation = navigation.navigate
 
-    const [SubCategory_id_Selected, setSubCategory_id_Selected] = useState('')
+    const [SubCategory_id_Selected, setSubCategory_id_Selected] = useState(1)
     const [Category_id_selected, setCategory_idselected] = useState('')
     const [selectedItems, setSelectedItems] = useState([]);
+    const [Data, setData] = useState([]);
+    const [Loading, setLoading] = useState(true)
+    const [NodataFound, setNodataFound] = useState(false)
+    const [Page, setPage] = useState(1)
+
+
 
     const flatListRef = useRef(null);
+    const route = useRoute()
 
-
+    const { start_date, end_date, trip_name } = route.params
     const lang = useSelector((state) => state.Language_Reducer)
-    const token = useSelector((state) => state.Token_Reducer)
+    const Token = useSelector((state) => state.Token_Reducer)
+
+    console.log("trip ==>>",trip_name);
+    
+    useEffect(() => {
+        API_fetch()
+    }, [])
+
+    const API_create_itenary = async () => {
+
+        console.log("selected ==>>", selectedItems);
+
+        const raw = JSON.stringify({
+            "itemId": selectedItems,
+            "startDate": `${start_date}`,
+            "endDate": `${end_date}`,
+            "tripName": trip_name,
+            "type": "events"
+        });
+
+
+        try {
+            const response = await postApi(API_url.Create_itinerary, raw, Token)
+            console.log("API_reaponse ==>>", response);
+            if (response.success == true) {
+                navigation.goBack()
+            }
+
+        } catch (error) {
+            console.log("itenary_error ==>>", error);
+
+        }
+    }
+
+    const API_fetch = async () => {
+
+        const url = `${API_url.Attractions}?page=${Page}&limit=10`
+
+        try {
+            const response = await getApi(url, Token)
+
+            const fetch_data = response.data
+
+            // if (fetch_data.length !== 0) {
+            // console.log("len_fetchData ==>>", fetch_data.length);
+
+            // if (Data.length > 0) {
+            //     setData([...Data, ...fetch_data])
+
+
+            // } else {
+            setData(fetch_data)
+
+            // }
+            // } else {
+            //     console.log("no data")
+            //     setNodataFound(true)
+            // }
+            setLoading(false)
+
+
+        } catch (error) {
+            console.log("itenary_attraction_error ==>>", error);
+
+        }
+    }
+
+
 
     const handleToggleItem = (item) => {
         setSelectedItems(prevItems => {
             if (prevItems.includes(item)) {
                 // Remove item if already selected
-                return prevItems.filter(i => i !== item);
+                return (prevItems.filter(i => i !== item))
             } else {
                 // Add item if not selected
                 return [...prevItems, item];
@@ -76,90 +156,121 @@ const Itenary = ({ navigation }) => {
             {/* header */}
             <View>
                 <Custom_Header nav={navigation} CustomNav={true} />
-                <Page_name name={'Itenary'} />
+                <Page_name name={itinerary_lang.Heading[lang]} />
             </View>
 
-            {/* container */}
-            <View style={styles.container}>
-
-                {/* sub category */}
-                <View>
-                    <Sub_Category_layout
-                        ref={flatListRef}
-                        Data={data} // Pass the subcategories data
-                        Selected={SubCategory_id_Selected} // Pass the currently selected subcategory ID
-                        onPress={(item) => { // Define the onPress method
-                            setSubCategory_id_Selected(item._id); // Update selected subcategory
-                            // Home_filter_API({
-                            //     Categoryitem: Category_id_selected,
-                            //     SubCategoriesitem: item._id
-                            // }); // Call API_data with the selected subcategory ID
-                        }}
-                    />
+            {Loading ? (
+                <View style={{
+                    backgroundColor: Colors.Primary_color,
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <Loader />
                 </View>
+            ) : (<>
+                {/* container */}
+                <View style={styles.container}>
 
-                {/* content */}
-                <View style={{ marginHorizontal: 10 }}>
-                    <FlatList
-                        data={data}
-                        renderItem={({ item, index }) => (
-                            <View style={styles.content}>
-                                <Image
-                                    style={styles.Image}
-                                    source={Images.Background}
-                                />
-                                <View style={styles.text_container}>
+                    {/* sub category */}
+                    <View>
+                        <Sub_Category_layout
+                            ref={flatListRef}
+                            Data={data} // Pass the subcategories data
+                            Selected={SubCategory_id_Selected} // Pass the currently selected subcategory ID
+                            onPress={(item) => { // Define the onPress method
+                                setSubCategory_id_Selected(item._id); // Update selected subcategory
+                                // Home_filter_API({
+                                //     Categoryitem: Category_id_selected,
+                                //     SubCategoriesitem: item._id
+                                // }); // Call API_data with the selected subcategory ID
+                            }}
+                        />
+                    </View>
 
-                                    {/* upper */}
-                                    <Text
-                                        numberOfLines={1}
-                                        style={styles.Upper_text}>
-                                        upper
-                                    </Text>
+                    {/* content */}
+                    <View style={{ marginHorizontal: 10 }}>
+                        <FlatList
+                            showsVerticalScrollIndicator={false}
+                            // onEndReached={(e) => {
+                            //     console.log("test", e)
+                            //     console.log("no_data ==>>", NodataFound)
+                            //     if (!NodataFound) {
+                            //         setPage(prevPage => prevPage + 1)
+                            //         API_fetch()
+                            //     }
 
-                                    {/* middle */}
-                                    <Text
-                                        numberOfLines={1}
-                                        style={styles.middle_text}>
-                                        {date()}
-                                    </Text>
+                            // }}
+                            // onEndReachedThreshold={1}
+                            data={Data}
+                            renderItem={({ item, index }) => (
+                                <View style={styles.content}>
+                                    <FastImage
+                                        style={styles.Image}
+                                        // source={Images.Background}
+                                        source={
+                                            item.photos && item.photos.length > 0 && item.photos[0].images?.original?.url
+                                                ? { uri: item.photos[0].images.medium.url }
+                                                : Images.Background // Use a default image when no valid image is available
+                                        }
+                                    />
+                                    <View style={styles.text_container}>
 
-                                    {/* lower */}
-                                    <Text
-                                        numberOfLines={2}
-                                        style={styles.lower_text}>
-                                        lower assasasa sa dasd asd asd s d sad sad sad sa d sd s ds ad sa dsa ds ad s ds d sad sa das
-                                    </Text>
+                                        {/* upper */}
+                                        <Text
+                                            numberOfLines={1}
+                                            style={styles.Upper_text}>
+                                            {item?.details?.name || ''}
+                                        </Text>
+
+                                        {/* middle
+                                        <Text
+                                            numberOfLines={1}
+                                            style={styles.middle_text}>
+                                            {date()}
+                                        </Text> */}
+
+                                        {/* lower */}
+                                        <Text
+                                            numberOfLines={2}
+                                            style={styles.lower_text}>
+                                            {item?.details?.description || ''}
+                                        </Text>
+
+                                    </View>
+
+                                    {/* selector */}
+                                    <View style={{
+                                        alignSelf: 'center'
+                                    }}>
+                                        <TouchableOpacity
+                                            style={styles.checkboxContainer}
+                                            onPress={() => handleToggleItem(item._id)} // Assuming your data has unique _id
+                                        >
+                                            <View style={[
+                                                styles.checkbox,
+                                                selectedItems.includes(item._id) && styles.checked
+                                            ]}>
+                                                {selectedItems.includes(item._id) && <View style={styles.checkmark} />}
+                                            </View>
+                                        </TouchableOpacity>
+                                    </View>
 
                                 </View>
+                            )}
+                            ListFooterComponent={<View style={{ height: responsiveScreenHeight(15) }} />}
 
-                                {/* selector */}
-                                <View style={{
-                                    alignSelf: 'center'
-                                }}>
-                                    <TouchableOpacity
-                                        style={styles.checkboxContainer}
-                                        onPress={() => handleToggleItem(item._id)} // Assuming your data has unique _id
-                                    >
-                                        <View style={[
-                                            styles.checkbox,
-                                            selectedItems.includes(item._id) && styles.checked
-                                        ]}>
-                                            {selectedItems.includes(item._id) && <View style={styles.checkmark} />}
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-
-                            </View>
-                        )}
-                    />
+                        />
+                    </View>
                 </View>
-            </View>
-            {/* done button */}
-            <View style={styles.done_container}>
-                <Custom_button text={'Done'} onPress={()=>navigation.goBack()}/>
+                {/* // done button */}
+                <View style={styles.done_container}>
+                    <Custom_button text={'Done'} onPress={() => API_create_itenary()} />
 
-            </View>
+                </View>
+            </>
+            )}
+
 
 
         </SafeAreaView>

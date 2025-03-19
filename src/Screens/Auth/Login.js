@@ -34,7 +34,17 @@ const Login = ({ navigation }) => {
             navigation.navigate('otp', { mobile: mobile })
           }
         } catch (error) {
-          console.error("login error ==>>",error);
+          console.error("login error ==>>", error);
+          if (error.message == 'Network request failed') {
+            Toast.show({
+              type: ALERT_TYPE.DANGER,
+              title: 'No Internet',
+              textBody: 'Not connected to internet, connect your device to the network ',
+              autoClose: 4000
+
+
+            })
+          }
         }
 
 
@@ -96,6 +106,8 @@ const Login = ({ navigation }) => {
                       placeholderTextColor={Colors.Text_grey_color}
                       keyboardType="phone-pad"
                       maxLength={10}
+                      returnKeyType="done" // Show "Done" on keyboard
+                      onSubmitEditing={send_otp}
                       cursorColor={Colors.base_color}
                       value={mobile}
                       onChangeText={(val) => setmobile(val)}
@@ -138,6 +150,7 @@ const Login = ({ navigation }) => {
             <View style={styles.modal_container}>
               <Text style={styles.modal_text_header}>Choose your country</Text>
               <FlatList
+              getItemLayout={true}
                 data={Country_code}
                 renderItem={({ item }) => (
                   <TouchableOpacity
